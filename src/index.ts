@@ -7,6 +7,10 @@ import CSStodayJournal from './todayJournal.css?inline';
 import CSSrainbowJournal from './rainbowJournal.css?inline';
 import CSSadmonitions from './admonition.css?inline';
 import { LSPluginBaseInfo, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
+import ja from "./translations/ja.json";
+let sweetAlert2background;  //color: sweetAlert2color
+let sweetAlert2color; //background: sweetAlert2background
 
 const keyTagColoring = "tagColoring";
 const keyPageColoring = "pageColoring";
@@ -14,7 +18,31 @@ const keyPageColoring = "pageColoring";
 
 //main
 const main = () => {
-  settingUI(); /* -setting */
+
+  //get theme color (For SweetAlert2)
+  //checkboxなどはCSSで上書きする必要あり
+
+  const rootThemeColor = () => {
+    const root = parent.document.querySelector(":root");
+    if (root) {
+      const rootStyles = getComputedStyle(root);
+      sweetAlert2background = rootStyles.getPropertyValue("--ls-block-properties-background-color") || "#ffffff";
+      sweetAlert2color = rootStyles.getPropertyValue("--ls-primary-text-color") || "#000000";
+    }
+  };
+  rootThemeColor();
+  logseq.App.onThemeModeChanged(() => { rootThemeColor(); });
+  //end
+
+  (async () => {
+    try {
+      await l10nSetup({ builtinTranslations: { ja } });
+    } finally {
+      /* user settings */
+      userSettings();
+    }
+  })();
+
   //Logseq bugs fix
   /* Fix "Extra space when journal queries are not active #6773" */
   /* background conflict journal queries */
@@ -213,7 +241,15 @@ function selectAdmonition(uuid) {
   //dialog
   logseq.showMainUI();
   Swal.fire({
-    text: 'Select Admonition panel',
+    html: `
+    <h3>🌈Select Admonition panel</h3>
+<style>
+div.swal2-container select.swal2-select {
+  background-color: ${sweetAlert2background};
+  color: ${sweetAlert2color};
+}
+</style>
+    `,
     input: 'select',
     inputOptions: {
       FAILED: "🔴Failed",
@@ -234,6 +270,8 @@ function selectAdmonition(uuid) {
     },
     inputPlaceholder: 'Select a tag',
     showCancelButton: true,
+    color: sweetAlert2color,
+    background: sweetAlert2background,
   }).then((answer) => {
     if (answer) {
       const { value: tag } = answer;
@@ -268,7 +306,7 @@ function hex2rgba(hex: string, alpha: number): string {
 }
 
 
-const settingUI = () => {
+const userSettings = () => {
   /* https://logseq.github.io/plugins/types/SettingSchemaDesc.html */
 
   const rainbowColor = [
