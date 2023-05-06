@@ -51,6 +51,8 @@ const main = () => {
   //CSS minify https://csscompressor.com/
   logseq.provideStyle({ key: "main", style: CSSmain });
 
+  provideColoring(logseq.settings);
+
   //set today journal coloring
   const keyTodayJournal = "todayJournal";
   if (logseq.settings?.todayJournal) {
@@ -70,15 +72,7 @@ const main = () => {
   }
 
   const keyBulletClosed = "bulletClosed";
-  //set BulletClosed
-  const CSSbulletClosed = (color): string => {
-    return `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
-div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;outline:5px solid ${hex2rgba(color, 0.6)}
-`};
   logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(logseq.settings?.bulletClosedColor) });
-
-  //provideColoring(logseq.settings);
-
 
 
   /* toolbarItem */
@@ -111,7 +105,7 @@ div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;out
 
   // Setting changed
   logseq.onSettingsChanged(async (newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
-    if (newSet !== oldSet) {
+    if (newSet && oldSet && newSet !== oldSet) {
       await removeProvideStyle(keyTagColoring);
       await removeProvideStyle(keyPageColoring);
       provideColoring(newSet);
@@ -146,13 +140,20 @@ div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;out
 //main end
 
 
+  //set BulletClosed
+  const CSSbulletClosed = (color): string => {
+    return `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
+div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;outline:5px solid ${hex2rgba(color, 0.6)}
+`};
+
+
 //for tag
 interface ITag {
   name: string;
   color: string;
 }
 const generateTagStyle = (tag: ITag) => `div#app-container a.tag[data-ref*='"${CSS.escape(tag.name)}"']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-div#app-container div[data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
 
 //for page
 interface IPage {
@@ -230,7 +231,7 @@ const provideColoring = (e) => {
     }
   });
   const thisStylePage = settingArrayPage.map(generatePageStyle).join("\n");//Page Coloring && favorites coloring
-  //settingArrayPage.map(FavoriteOverflowCSS);//favorite recent remove
+  settingArrayPage.map(FavoriteOverflowCSS);//favorite recent remove
   logseq.provideStyle({ key: keyPageColoring, style: thisStylePage });
   //page end
 };
