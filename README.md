@@ -23,8 +23,9 @@
 
 ### Tag coloring
 
-> possible to set up to 12 tags.
-> Set the background color and options in #tag words on settings.
+- possible to set up to 12 tags
+- Set the background color and options in #tag words on settings.
+> Words matching the parent page of namespaces can cause duplication, just like with tags.
 
 ### Admonition panel by tag
 
