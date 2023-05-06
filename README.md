@@ -7,7 +7,7 @@
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-panel-coloring/total.svg)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
  Published 2022/11/13
 
-## Functions
+## Features
 
 ### Page coloring (title and contents)
 
