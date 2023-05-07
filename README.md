@@ -5,8 +5,9 @@
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-panel-coloring?color=blue)](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-panel-coloring/total.svg)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
+ Published 2022/11/13
 
-## Functions
+## Features
 
 ### Page coloring (title and contents)
 
@@ -76,7 +77,7 @@
 
 ## 🎨 Settings
 
-> possible to open settings from button for this plugin on upper right toolbar
+> Open Plugin settings from button for this plugin on upper right toolbar
 
  <details><summary>Summary</summary>
 
@@ -90,20 +91,42 @@
 
 - Select marketplace
 
-- Type '`panel`' in the search field, select it from the search results and install
+- Type '`Panel`' in the search field, select it from the search results and install
 
 ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
 
-## My plugins
+## Showcase / Questions / Ideas / Help
+
+Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
+
+## Contributing
+
+- Contributions to this plugin are always welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request. All contributions will be reviewed and considered for inclusion in future releases.
+
+## License
+
+- This Plugin is released under the MIT License. See the LICENSE file for more information.
+
+## Author
+
+* GitHub: [YU000jp](https://github.com/YU000jp)
+* Twitter: [@y0skyblue](https://twitter.com/y0skyblue)
+* Discord: YU#5179 ([Logseq](https://discord.gg/logseq))
+
+### My Logseq plugins
 
 - [Weekdays and Holidays (Templates)](https://github.com/YU000jp/logseq-plugin-weekdays-and-weekends)
 - [Sticky Popup](https://github.com/YU000jp/logseq-plugin-sticky-popup)
 - [SomeMenuExtender](https://github.com/YU000jp/logseq-plugin-some-menu-extender)
-- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
 - [Panel Coloring](https://github.com/YU000jp/logseq-plugin-panel-coloring)
 - [Page-tags and Hierarchy](https://github.com/YU000jp/logseq-page-tags-and-hierarchy)
+- [Column Layout](https://github.com/YU000jp/Logseq-column-Layout)
 - [Rakuten-books](https://github.com/YU000jp/logseq-plugin-rakuten-books) (Only for Japanese site)
 - [booklog-jp-import](https://github.com/YU000jp/logseq-plugin-booklog-jp-import) (Only for Japanese site)
+
+## Link
+
+- [Logseq](https://github.com/logseq)
 
 ## Prior art & Credit
 
