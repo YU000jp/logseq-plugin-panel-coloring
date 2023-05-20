@@ -17,7 +17,7 @@
 
 ### [Admonition Panel by Tag (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
-- Nest with the tag as the parent. It is possible to have a panel within a panel.
+- Nest with the tag as the parent.
 
    ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
 
