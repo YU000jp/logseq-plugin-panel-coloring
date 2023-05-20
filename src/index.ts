@@ -140,9 +140,9 @@ const main = () => {
 //main end
 
 
-  //set BulletClosed
-  const CSSbulletClosed = (color): string => {
-    return `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
+//set BulletClosed
+const CSSbulletClosed = (color): string => {
+  return `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
 div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;outline:5px solid ${hex2rgba(color, 0.6)}
 `};
 
@@ -320,11 +320,20 @@ const userSettings = () => {
     //option
     settingArray.push(
       {
+        key: '',
+        title: t("Option"),
+        type: "heading",
+        default: "",
+        description: "",
+        inputAs: "color",
+      },
+      {
         key: "admonitions",
-        title: "admonitions by tags",
+        title: "Admonition by tags (batch block)",
         type: "boolean",
         default: true,
         description: `
+        Nest with the tag as the parent.
               🔴#FAILED / #REMEDY, 
               🟠#WARNING / #LEARNED, 
               🟡#CAUTION / #DECLARATION, 
@@ -336,24 +345,32 @@ const userSettings = () => {
       },
       {
         key: "rainbowJournal",
-        title: "outline right border",
+        title: t("Outline right border"),
         type: "boolean",
         default: true,
-        description: "Color according to nesting depth.",
+        description: t("Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side."),
       },
       {
         key: "todayJournal",
-        title: "today & yesterday journal coloring",
+        title: t("today & yesterday journals coloring"),
         type: "boolean",
         default: false,
-        description: "background-color: yellow & green (**light theme only)",
+        description: t("background-color: yellow & green (**light theme only)"),
       },
       {
-        key: `bulletClosedColor`,
-        title: `choice closed-bullet color`,
+        key: "bulletClosedColor",
+        title: t("Choice closed-bullets color"),
         type: "string",
         default: "f8b400",
-        description: "Accentuate with color",
+        description: "",
+        inputAs: "color",
+      },
+      {
+        key: '',
+        title: t("Page Coloring (title and contents)"),
+        type: "heading",
+        default: "",
+        description: t("Accentuate the specified page. Color underline on favorite list on left sidebar."),
         inputAs: "color",
       },
     );
@@ -364,53 +381,63 @@ const userSettings = () => {
       settingArray.push(
         {
           key: `heading10${idx}`,
-          title: `page [ ${idx} ]`,
+          title: t("Page") + ` [ ${idx} ]`,
           type: "heading",
           default: "",
-          description: "Accentuate the specified page like a panel.",
+          description: "",
         },
         {
           key: `pn${idx}`,
-          title: `set [ page title ] word`,
+          title: t("Set the word of the page title"),
           type: "string",
           default: ``,
           description: "",
         },
         {
           key: `pc${idx}`,
-          title: `choice background color`,
+          title: t("Choice the background color"),
           type: "string",
           default: rainbowColor[idx - 1],
-          description: "color fades",
+          description: t("color fades"),
           inputAs: "color",
         },
       );
     });
 
+    settingArray.push(
+      {
+        key: '',
+        title: t("Tag Coloring (batch block)"),
+        type: "heading",
+        default: "",
+        description: t("Accentuate tagged blocks like a panel. ⚠️Words matching the parent page of namespaces can cause duplication, just like with tags."),
+        inputAs: "color",
+      },
+    );
 
     //tag
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
       settingArray.push(
         {
           key: `heading00${idx}`,
-          title: `#tag [ ${idx} ]`,
+          title: t("#tag") + ` [ ${idx} ]`,
           type: "heading",
           default: "",
-          description: "Accentuate tagged blocks like a panel.",
+          description: "",
         },
         {
           key: `tn${idx}`,
-          title: `set [ tag ] word`,
+          title: t("Set the word of the tag"),
           type: "string",
           default: ``,
-          description: "without [ # ]",
+          description: "without #",
         },
         {
           key: `tc${idx}`,
-          title: `choice background color`,
+          title: t("Choice the background color"),
           type: "string",
           default: rainbowColor[idx - 1],
-          description: "color fades",
+          description: t("color fades"),
           inputAs: "color",
         },
       );
