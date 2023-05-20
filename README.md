@@ -31,9 +31,18 @@
 
    ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
 
+## Usage
+
+- Open the plugin settings screen from the toolbar button and make the necessary changes.
+   > By default, several items are set to "off" in the initial configuration.
+
+## Document
+
+- Check out [Document](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+
 ## Showcase / Questions / Ideas / Help
 
-Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
+- Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
 
 ## Contributing
 
