@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.4.0...v2.4.1) (2023-05-20)
+
+
+### Bug Fixes
+
+* **doc:** Tidy cleanup ([3883e4e](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/3883e4edf22772eef7a513c78d8b5e0384bd8627))
+
 # [2.4.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.3.5...v2.4.0) (2023-05-06)
 
 
