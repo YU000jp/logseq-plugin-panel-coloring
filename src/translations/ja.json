@@ -1,3 +1,17 @@
 {
-
+    "Option": "オプション",
+    "Outline right border": "右の罫線に色をつける",
+    "Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side.": "ブロックの深さに応じて色をつける",
+    "today & yesterday journals coloring": "今日と昨日の日誌に色をつける",
+    "background-color: yellow & green (**light theme only)": "背景色: 黄色と緑 (**ライトテーマのみ)",
+    "Choice closed-bullets color": "閉じているブロックのバレッド(・)に色をつける",
+    "Page Coloring (title and contents)": "Page Coloring (ページのタイトルと内容)",
+    "Accentuate the specified page. Color underline on favorite list on left sidebar.": "指定したページに色をつける機能。そのページをお気に入りリストに追加した場合、左サイドバーのメニューも指定した色になります。",
+    "Page": "ページ",
+    "Set the word of the page title": "ページタイトルの文字列を入力",
+    "Choice the background color": "背景色を選択",
+    "Tag Coloring (batch block)": "Tag Coloring",
+    "Accentuate tagged blocks like a panel. ⚠️Words matching the parent page of namespaces can cause duplication, just like with tags.": "タグ付けされたブロックに色をつける機能。「#」なしで入力してください。⚠️Hierarchy(namespaces)の親ページ名の単語にマッチしてしまう場合があります。",
+    "#tag": "#タグ",
+    "Set the word of the tag": "タグの文字列を入力"
 }
