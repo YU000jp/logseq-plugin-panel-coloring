@@ -1,89 +1,25 @@
-# Logseq Plugin: Panel Coloring (Color)
+# Logseq Plugin: Panel Coloring
 
-> Accentuate specified pages or tagged blocks by coloring.
+- Accentuate specified pages or tagged blocks by coloring.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-panel-coloring?color=blue)](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-panel-coloring/total.svg)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
  Published 2022/11/13
 
-## Features
+## Demo
 
-### Page coloring (title and contents)
+### [Page coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
-> possible to set up to 12 pages.
-> Set the background color and options in the page titles on settings.
+- it is possible to set up to 12 pages. Set the background color and options in the page titles on settings.
 
-### Demo [light theme]
+   ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
 
-![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
+### [Admonition Panel by Tag](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
-#### [left sidebar] color underline on favorite list
+- Nest with the tag as the parent. It is possible to have a panel within a panel.
 
-![image](https://user-images.githubusercontent.com/111847207/224722704-45ab6b09-3906-4404-949a-b6ace2745860.png)
-
-### Tag coloring
-
-- possible to set up to 12 tags
-- Set the background color and options in #tag words on settings.
-> Words matching the parent page of namespaces can cause duplication, just like with tags.
-
-### Admonition panel by tag
-
-> Nest with the tag as the parent.  It is possible to have a panel within a panel.
-
-    🔴FAILED / REMEDY
-    🟠WARNING / LEARNED
-    🟡CAUTION / DECLARATION
-    🟢SUCCESS / FACTS
-    🔵NOTICE / INFO / REVIEW
-    🟣QUESTION / DISCOVERY
-    🟤REPORT / NOTE
-
-##### Admonition panel Selector
-
-- slash command => `/🌈select admonition panel`
-- bullet contextmenu => `🌈select admonition`
-
- <details><summary>Demo</summary>
-
-##### demo [light theme]
-
-![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
-
-##### demo [dark theme]
-
-![image](https://user-images.githubusercontent.com/111847207/207467439-26c7a35a-4cb7-4f60-8807-68d1832d4656.png)
-
-</details>
-
-### outline right border
-
-> As the outline gets deeper, a rainbow appears on the right side.
-
- <details><summary>Demo</summary>
-
-![image](https://user-images.githubusercontent.com/111847207/205902934-21140e61-7ec2-41c7-b89a-834bb5719392.png)
-
-</details>
-
-### today & yesterday journal coloring
-
-> background-color: yellow & green (**light theme only)
-
-### choice closed-bullet color
-
-> Accentuate with color
-
-## 🎨 Settings
-
-> Open Plugin settings from button for this plugin on upper right toolbar
-
- <details><summary>Summary</summary>
-
-![image](https://user-images.githubusercontent.com/111847207/224518718-de37c55f-33d7-48cd-987a-78721367a8c6.png)
-
-</details>
+   ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
 
 ## Install from Logseq Marketplace
 
@@ -93,7 +29,7 @@
 
 - Type '`Panel`' in the search field, select it from the search results and install
 
-![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
+   ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
 
 ## Showcase / Questions / Ideas / Help
 
@@ -101,11 +37,11 @@ Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extend
 
 ## Contributing
 
-- Contributions to this plugin are always welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request. All contributions will be reviewed and considered for inclusion in future releases.
+> Contributions to this plugin are always welcome! If you find a bug or have a suggestion for a new feature, please open an issue or submit a pull request. All contributions will be reviewed and considered for inclusion in future releases.
 
 ## License
 
-- This Plugin is released under the MIT License. See the LICENSE file for more information.
+> This Plugin is released under the MIT License. See the LICENSE file for more information.
 
 ## Author
 
