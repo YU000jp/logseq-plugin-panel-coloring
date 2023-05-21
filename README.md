@@ -11,7 +11,7 @@
 
 ## Table of Features
 
-- [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+- [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#page-coloring-title-and-contents)
 - [Tag coloring (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#tag-coloring-batch-block)
 - [Admonition Panel by Tag (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
