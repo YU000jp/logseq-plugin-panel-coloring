@@ -7,9 +7,23 @@
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-panel-coloring/total.svg)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
  Published 2022/11/13
 
+---
+
+## Table of Features
+
+- [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+- [Tag coloring (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#tag-coloring-batch-block)
+- [Admonition Panel by Tag (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+
+## Document
+
+- Check out [Document](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+
+---
+
 ## Demo
 
-### [Page coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+### [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
 - it is possible to set up to 12 pages. Set the background color and options in the page titles on settings.
 
@@ -21,7 +35,11 @@
 
    ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
 
-## Install from Logseq Marketplace
+---
+
+## Getting Started
+
+### Install from Logseq Marketplace
 
 - Press [`---`] on the top right toolbar to open [`Plugins`]
 
@@ -31,14 +49,12 @@
 
    ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
 
-## Usage
+### Usage
 
 - Open the plugin settings screen from the toolbar button and make the necessary changes.
    > By default, several items are set to "off" in the initial configuration.
 
-## Document
-
-- Check out [Document](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+---
 
 ## Showcase / Questions / Ideas / Help
 
