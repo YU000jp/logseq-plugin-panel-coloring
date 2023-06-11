@@ -140,12 +140,12 @@ interface ITag {
   color: string;
 }
 const generateTagStyle = (tag: ITag) => {
-  if(logseq.settings!.wordsMatchingParentPage === false){
+  if (logseq.settings!.wordsMatchingParentPage === false) {
     return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
     div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']:not[data-refs-self*='"${CSS.escape(tag.name)}/"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
-  }else{
+  } else {
     return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;    
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   }
 };
 
@@ -265,6 +265,13 @@ async function selectAdmonition(uuid) {
           <option value="REPORT">🟤Report</option>
           <option value="NOTE">🟤Note</option>
           </select>
+          <style>
+          select#admonition-select {
+            background: var(--ls-primary-background-color);
+            color: var(--ls-primary-text-color);
+            boxShadow: 1px 2px 5px var(--ls-secondary-background-color);
+          }
+          </style>
         `,
     style: {
       width: "240px",
