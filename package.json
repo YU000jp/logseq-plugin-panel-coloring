@@ -21,8 +21,7 @@
     },
     "dependencies": {
         "@logseq/libs": "^0.0.15",
-        "logseq-l10n": "^0.2.0",
-        "sweetalert2": "^11.7.5"
+        "logseq-l10n": "^0.2.0"
     },
     "devDependencies": {
         "@semantic-release/changelog": "^6.0.3",
