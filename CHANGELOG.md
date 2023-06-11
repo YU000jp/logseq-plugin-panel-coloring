@@ -1,3 +1,11 @@
+## [2.4.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.4.1...v2.4.2) (2023-06-11)
+
+
+### Bug Fixes
+
+* **refactor:** cleanup & add to plugin settings ([04695df](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/04695df70e587ea6f7b28442f294fc3293dbe6f4))
+* **refactor:** cleanup & if !logseq.settings : open plguin settings ([a1d39f3](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/a1d39f33ad5bda4e345cb28d3341beb860ee798e))
+
 ## [2.4.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.4.0...v2.4.1) (2023-05-20)
 
 
