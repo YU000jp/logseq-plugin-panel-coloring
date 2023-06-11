@@ -1,23 +1,23 @@
-div#app-container :is(a.tag[data-ref*='"report"'],a.tag[data-ref*='"note"'],a.tag[data-ref*='"review"']){color:inherit;padding:2px;border-radius:3px;background:rgba(160,82,45,.5)}
-div#app-container :is(div[data-refs-self*='"report"'],div[data-refs-self*='"note"'],div[data-refs-self*='"review"']){padding:1.4em;border-radius:16px;background:rgba(160,82,45,.1);outline:3px double rgba(160,82,45,.7);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"report"']::before,div[data-refs-self*='"note"']::before,div[data-refs-self*='"review"']::before){content:"🟤";font-size:20px;position:absolute;right:10px;top:10px}
-div#app-container :is(a.tag[data-ref*='"question"'],a.tag[data-ref*='"discovery"']){color:inherit;padding:2px;border-radius:3px;background:rgba(147,112,219,.5)}
-div#app-container :is(div[data-refs-self*='"question"'],div[data-refs-self*='"discovery"']){padding:1.4em;border-radius:16px;background:rgba(147,112,219,.1);outline:3px double rgba(147,112,219,.7);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"question"']::before,div[data-refs-self*='"discovery"']::before){content:"🟣";font-size:20px;position:absolute;right:10px;top:10px}
-div#app-container :is(a.tag[data-ref*='"notice"'],a.tag[data-ref*='"info"'],a.tag[data-ref*='"review"']){color:inherit;padding:2px;border-radius:3px;background:rgba(30,144,255,.5)}
-div#app-container :is(div[data-refs-self*='"notice"'],div[data-refs-self*='"info"'],div[data-refs-self*='"review"']){padding:1.4em;border-radius:16px;background:rgba(30,144,255,.1);outline:3px double rgba(30,144,255,.7);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"notice"']::before,div[data-refs-self*='"info"']::before,div[data-refs-self*='"review"']::before){content:"🔵";font-size:20px;position:absolute;right:10px;top:10px}
-div#app-container :is(a.tag[data-ref*='"success"'],a.tag[data-ref*='"facts"']){color:inherit;padding:2px;border-radius:3px;background:rgba(42,178,123,.6)}
-div#app-container :is(div[data-refs-self*='"success"'],div[data-refs-self*='"facts"']){padding:1.4em;border-radius:16px;background:rgba(42,178,123,.1);outline:3px double rgba(42,178,123,.7);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"success"']::before,div[data-refs-self*='"facts"']::before){content:"🟢";font-size:20px;position:absolute;right:10px;top:10px}
-div#app-container :is(a.tag[data-ref*='"caution"'],a.tag[data-ref*='"declaration"']){color:inherit;padding:2px;border-radius:3px;background:rgba(248,180,0,.7)}
-div#app-container :is(div[data-refs-self*='"caution"'],div[data-refs-self*='"declaration"']){padding:1.4em;border-radius:16px;background:rgba(248,180,0,.1);outline:3px double rgba(248,180,0,.8);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"caution"']::before,div[data-refs-self*='"declaration"']::before){content:"🟡";font-size:20px;position:absolute;right:10px;top:10px}
-div.dark-theme div#app-container :is(a.tag[data-ref*='"caution"'],a.tag[data-ref*='"declaration"']){background:rgba(255,248,220,.3)}
-div.dark-theme div#app-container :is(div[data-refs-self*='"caution"'],div[data-refs-self*='"declaration"']){background:rgba(255,248,220,.1);outline:3px double rgba(255,248,220,.7)}
-div#app-container :is(a.tag[data-ref*='"warning"'],a.tag[data-ref*='"learned"']){color:inherit;padding:2px;border-radius:3px;background:rgba(255,127,80,.7)}
-div#app-container :is(div[data-refs-self*='"warning"'],div[data-refs-self*='"learned"']){padding:1.4em;border-radius:16px;background:rgba(255,127,80,.1);outline:3px double rgba(255,127,80,.7);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"warning"']::before,div[data-refs-self*='"learned"']::before){content:"🟠";font-size:20px;position:absolute;right:10px;top:10px}
-div#app-container :is(a.tag[data-ref*='"failed"'],a.tag[data-ref*='"remedy"']){color:inherit;padding:2px;border-radius:3px;background:rgba(220,20,60,.5)}
-div#app-container :is(div[data-refs-self*='"failed"'],div[data-refs-self*='"remedy"']){padding:1.4em;border-radius:16px;background:rgba(220,20,60,.1);outline:3px double rgba(220,20,60,.7);outline-offset:3px}
-div#app-container :is(div[data-refs-self*='"failed"']::before,div[data-refs-self*='"remedy"']::before){content:"🔴";font-size:20px;position:absolute;right:10px;top:10px}
+div#app-container a.tag:is([data-ref='report'],[data-ref='note'],[data-ref='review']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(160,82,45,.5)}
+div#app-container div:is([data-refs-self*='"report"'],[data-refs-self*='"note"'],[data-refs-self*='"review"']){padding:1.4em;border-radius:16px;background:rgba(160,82,45,.1);outline:3px double rgba(160,82,45,.7)}
+div#app-container div:is([data-refs-self*='"report"'],[data-refs-self*='"note"'],[data-refs-self*='"review"'])::after{content:"🟤";font-size:20px;position:absolute;right:10px;top:10px}
+div#app-container a.tag:is([data-ref='question'],[data-ref='discovery']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(147,112,219,.5)}
+div#app-container div:is([data-refs-self*='"question"'],[data-refs-self*='"discovery"']){padding:1.4em;border-radius:16px;background:rgba(147,112,219,.1);outline:3px double rgba(147,112,219,.7)}
+div#app-container div:is([data-refs-self*='"question"'],[data-refs-self*='"discovery"'])::after{content:"🟣";font-size:20px;position:absolute;right:10px;top:10px}
+div#app-container a.tag:is([data-ref='notice'],[data-ref='info'],[data-ref='review"']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(30,144,255,.5)}
+div#app-container div:is([data-refs-self*='"notice"'],[data-refs-self*='"info"'],[data-refs-self*='"review"']){padding:1.4em;border-radius:16px;background:rgba(30,144,255,.1);outline:3px double rgba(30,144,255,.7)}
+div#app-container div:is([data-refs-self*='"notice"'],[data-refs-self*='"info"'],[data-refs-self*='"review"'])::after{content:"🔵";font-size:20px;position:absolute;right:10px;top:10px}
+div#app-container a.tag:is([data-ref='success'],[data-ref='facts']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(42,178,123,.6)}
+div#app-container div:is([data-refs-self*='"success"'],[data-refs-self*='"facts"']){padding:1.4em;border-radius:16px;background:rgba(42,178,123,.1);outline:3px double rgba(42,178,123,.7)}
+div#app-container div:is([data-refs-self*='"success"'],[data-refs-self*='"facts"'])::after{content:"🟢";font-size:20px;position:absolute;right:10px;top:10px}
+div#app-container a.tag:is([data-ref='caution'],[data-ref='declaration']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(248,180,0,.7)}
+div#app-container div:is([data-refs-self*='"caution"'],[data-refs-self*='"declaration"']){padding:1.4em;border-radius:16px;background:rgba(248,180,0,.1);outline:3px double rgba(248,180,0,.8)}
+div#app-container div:is([data-refs-self*='"caution"'],[data-refs-self*='"declaration"'])::after{content:"🟡";font-size:20px;position:absolute;right:10px;top:10px}
+div.dark-theme div#app-container a.tag:is([data-ref='caution'],[data-ref='declaration']){background:rgba(255,248,220,.3)}
+div.dark-theme div#app-container div:is([data-refs-self*='"caution"'],[data-refs-self*='"declaration"']){background:rgba(255,248,220,.1);outline:3px double rgba(255,248,220,.7)}
+div#app-container a.tag:is([data-ref='warning'],[data-ref='learned']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(255,127,80,.7)}
+div#app-container div:is([data-refs-self*='"warning"'],[data-refs-self*='"learned"']){padding:1.4em;border-radius:16px;background:rgba(255,127,80,.1);outline:3px double rgba(255,127,80,.7)}
+div#app-container div:is([data-refs-self*='"warning"'],[data-refs-self*='"learned"'])::after{content:"🟠";font-size:20px;position:absolute;right:10px;top:10px}
+div#app-container a.tag:is([data-ref='failed'],[data-ref='remedy']){margin-left:1em;color:inherit;padding:2px;border-radius:3px;background:rgba(220,20,60,.5)}
+div#app-container div:is([data-refs-self*='"failed"'],[data-refs-self*='"remedy"']){padding:1.4em;border-radius:16px;background:rgba(220,20,60,.1);outline:3px double rgba(220,20,60,.7)}
+div#app-container div:is([data-refs-self*='"failed"'],[data-refs-self*='"remedy"'])::after{content:"🔴";font-size:20px;position:absolute;right:10px;top:10px}

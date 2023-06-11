@@ -11,7 +11,8 @@
     "Set the word of the page title": "ページタイトルの文字列を入力",
     "Choice the background color": "背景色を選択",
     "Tag Coloring (batch block)": "Tag Coloring",
-    "Accentuate tagged blocks like a panel. ⚠️Words matching the parent page of namespaces can cause duplication, just like with tags.": "タグ付けされたブロックに色をつける機能。「#」なしで入力してください。⚠️Hierarchy(namespaces)の親ページ名の単語にマッチしてしまう場合があります。",
+    "Accentuate tagged blocks like a panel": "タグ付けされたブロックに色をつける機能。「#」なしで入力してください。",
+    "Apply if it matches a child page of a namespace": "名前空間の子ページにマッチした場合に適用",
     "#tag": "#タグ",
     "Set the word of the tag": "タグの文字列を入力"
 }

@@ -1,16 +1,11 @@
 import "@logseq/libs";
-import { logseq as PL } from "../package.json";
-const pluginId = PL.id;
-import Swal from 'sweetalert2';//https://sweetalert2.github.io/
 import CSSmain from './main.css?inline';
 import CSStodayJournal from './todayJournal.css?inline';
 import CSSrainbowJournal from './rainbowJournal.css?inline';
 import CSSadmonitions from './admonition.css?inline';
-import { LSPluginBaseInfo, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { BlockEntity, LSPluginBaseInfo, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json";
-let sweetAlert2background;  //color: sweetAlert2color
-let sweetAlert2color; //background: sweetAlert2background
 
 const keyTagColoring = "tagColoring";
 const keyPageColoring = "pageColoring";
@@ -19,30 +14,17 @@ const keyPageColoring = "pageColoring";
 //main
 const main = () => {
 
-  //get theme color (For SweetAlert2)
-  //checkboxなどはCSSで上書きする必要あり
-
-  const rootThemeColor = () => {
-    const root = parent.document.querySelector(":root");
-    if (root) {
-      const rootStyles = getComputedStyle(root);
-      sweetAlert2background = rootStyles.getPropertyValue("--ls-block-properties-background-color") || "#ffffff";
-      sweetAlert2color = rootStyles.getPropertyValue("--ls-primary-text-color") || "#000000";
-    }
-  };
-  rootThemeColor();
-  logseq.App.onThemeModeChanged(() => { rootThemeColor(); });
-  //end
-
   (async () => {
     try {
       await l10nSetup({ builtinTranslations: { ja } });
     } finally {
       /* user settings */
       logseq.useSettingsSchema(generateSettings());
-      setTimeout(() => {
-        logseq.showSettingsUI();
-      }, 300);
+      if (!logseq.settings) {
+        setTimeout(() => {
+          logseq.showSettingsUI();
+        }, 300);
+      }
     }
   })();
 
@@ -80,7 +62,7 @@ const main = () => {
 
   /* toolbarItem */
   logseq.App.registerUIItem("toolbar", {
-    key: pluginId,
+    key: logseq.baseInfo.id,
     template: `
   <div data-on-click="open_color_settings" style="font-size:20px">
   <svg width="20.2" height="20" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,40 +79,42 @@ const main = () => {
   });
 
   /* Block slash command */
-  logseq.Editor.registerSlashCommand('🌈Select Admonition panel', async ({ uuid }) => {
+  logseq.Editor.registerSlashCommand('🌈Admonition Selector', async ({ uuid }) => {
     selectAdmonition(uuid);
   });
 
   /* Block ContextMenuItem  */
-  logseq.Editor.registerBlockContextMenuItem('🌈Select Admonition', async ({ uuid }) => {
+  logseq.Editor.registerBlockContextMenuItem('🌈Admonition Selector', async ({ uuid }) => {
     selectAdmonition(uuid);
   });
 
   // Setting changed
   logseq.onSettingsChanged(async (newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
-    if (newSet && oldSet && newSet !== oldSet) {
-      await removeProvideStyle(keyTagColoring);
-      await removeProvideStyle(keyPageColoring);
+    if (newSet === oldSet) return;
+    removeProvideStyle(keyTagColoring);
+    removeProvideStyle(keyPageColoring);
+    setTimeout(() => {
       provideColoring(newSet);
-      if (oldSet.admonitions !== false && newSet.admonitions === false) {
-        removeProvideStyle(keyAdmonitions);
-      } else if (oldSet.admonitions !== true && newSet.admonitions === true) {
-        logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
-      }
-      if (oldSet.rainbowJournal !== false && newSet.rainbowJournal === false) {
-        removeProvideStyle(keyRainbowJournal);
-      } else if (oldSet.rainbowJournal !== true && newSet.rainbowJournal === true) {
-        logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal });
-      }
-      if (oldSet.todayJournal !== false && newSet.todayJournal === false) {
-        removeProvideStyle(keyTodayJournal);
-      } else if (oldSet.todayJournal !== true && newSet.todayJournal === true) {
-        logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
-      }
-      await removeProvideStyle(keyBulletClosed);
-      logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(newSet.bulletClosedColor) });
+    }, 100);
+    if (oldSet.admonitions !== false && newSet.admonitions === false) {
+      removeProvideStyle(keyAdmonitions);
+    } else if (oldSet.admonitions !== true && newSet.admonitions === true) {
+      logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
     }
+    if (oldSet.rainbowJournal !== false && newSet.rainbowJournal === false) {
+      removeProvideStyle(keyRainbowJournal);
+    } else if (oldSet.rainbowJournal !== true && newSet.rainbowJournal === true) {
+      logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal });
+    }
+    if (oldSet.todayJournal !== false && newSet.todayJournal === false) {
+      removeProvideStyle(keyTodayJournal);
+    } else if (oldSet.todayJournal !== true && newSet.todayJournal === true) {
+      logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
+    }
+    removeProvideStyle(keyBulletClosed);
+    logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(newSet.bulletClosedColor) });
   });
+
 
   logseq.provideModel({
     //toolbar onclick
@@ -155,8 +139,15 @@ interface ITag {
   name: string;
   color: string;
 }
-const generateTagStyle = (tag: ITag) => `div#app-container a.tag[data-ref*='"${CSS.escape(tag.name)}"']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+const generateTagStyle = (tag: ITag) => {
+  if(logseq.settings!.wordsMatchingParentPage === false){
+    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']:not[data-refs-self*='"${CSS.escape(tag.name)}/"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+  }else{
+    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;    
+  }
+};
 
 //for page
 interface IPage {
@@ -172,14 +163,16 @@ div#left-sidebar div.favorites li.favorite-item[data-ref*="${CSS.escape(page.nam
 
 //favorites:has(title) + recent display none (overflow CSS)
 const FavoriteOverflowCSS = (page: IPage) => {
-  const favorites = parent.document.querySelector('div.favorites');
-  if (favorites) {
-    const favoriteItems = favorites.querySelectorAll(`li.favorite-item[data-ref*="${CSS.escape(page.name)}"i]`);
+  const favorites = parent.document.querySelector('div.favorites') as HTMLDivElement | null;
+  if (favorites !== null) {
+    const favoriteItems = favorites.querySelectorAll(`li.favorite-item[data-ref="${CSS.escape(page.name)}"]`) as NodeListOf<HTMLLIElement>;
     if (favoriteItems.length > 0) {
       const nextSibling = favorites.nextElementSibling;
       if (nextSibling && nextSibling.classList.contains('recent')) {
-        const recentItems = nextSibling.querySelectorAll(`li[data-ref*="${CSS.escape(page.name)}" i].recent-item.select-none`);
-        recentItems.forEach(item => item.classList.add('hidden'));
+        const recentItems = nextSibling.querySelectorAll(`li[data-ref="${CSS.escape(page.name)}"].recent-item.select-none`) as NodeListOf<HTMLLIElement>;
+        if (recentItems.length > 0) {
+          recentItems.forEach(item => item.classList.add('hidden'));
+        }
       }
     }
   }
@@ -187,17 +180,16 @@ const FavoriteOverflowCSS = (page: IPage) => {
 
 
 const removeProvideStyle = (className: string) => {
-  const doc = parent.document.head.querySelector(`style[data-injected-style^="${className}"]`);
-  if (doc) {
+  const doc = parent.document.head.querySelector(`style[data-injected-style^="${className}"]`) as HTMLStyleElement | null;
+  if (doc !== null) {
     doc.remove();
   }
 };
 
 
 //Tag Coloring & Page Coloring
-const provideColoring = (e) => {
-  const settings = e;
-  if (!settings) { return };
+const provideColoring = (settings) => {
+  if (!settings) return;
   const settingKeys = Object.keys(settings || {});
   //tag
   const tcArray = settingKeys
@@ -241,57 +233,69 @@ const provideColoring = (e) => {
 
 
 //admonition selector
-function selectAdmonition(uuid) {
-  //dialog
-  logseq.showMainUI();
-  Swal.fire({
-    html: `
-    <h3>🌈Select Admonition panel</h3>
-<style>
-div.swal2-container select.swal2-select {
-  background-color: ${sweetAlert2background};
-  color: ${sweetAlert2color};
-}
-</style>
-    `,
-    input: 'select',
-    inputOptions: {
-      FAILED: "🔴Failed",
-      REMEDY: "🔴Remedy",
-      WARNING: "🟠Warning",
-      LEARNED: "🟠Learned",
-      CAUTION: "🟡Caution",
-      DECLARATION: "🟡Declaration",
-      SUCCESS: "🟢Success",
-      FACTS: "🟢Facts",
-      NOTICE: "🔵Notice",
-      INFO: "🔵Info",
-      REVIEW: "🔵Review",
-      QUESTION: "🟣Question",
-      DISCOVERY: "🟣Discovery",
-      REPORT: "🟤Report",
-      NOTE: "🟤Note",
+async function selectAdmonition(uuid) {
+  const blockElement = parent.document.getElementsByClassName(uuid) as HTMLCollectionOf<HTMLElement>;
+  if (!blockElement) return;
+  //エレメントから位置を取得する
+  const rect = blockElement[0].getBoundingClientRect();
+  if (!rect) return;
+  const top: string = Number(rect.top + window.pageYOffset - 140) + "px";
+  const left: string = Number(rect.left + window.pageXOffset + 100) + "px";
+  logseq.provideUI({
+    key: "admonition-selector",
+    reset: true,
+    close: "outside",
+    template: `
+          <h3>Admonition Selector</h3>
+          <select id="admonition-select">
+          <option value="">🌈Select a tag</option>
+          <option value="FAILED">🔴Failed</option>
+          <option value="REMEDY">🔴Remedy</option>
+          <option value="WARNING">🟠Warning</option>
+          <option value="LEARNED">🟠Learned</option>
+          <option value="CAUTION">🟡Caution</option>
+          <option value="DECLARATION">🟡Declaration</option>
+          <option value="SUCCESS">🟢Success</option>
+          <option value="FACTS">🟢Facts</option>
+          <option value="NOTICE">🔵Notice</option>
+          <option value="INFO">🔵Info</option>
+          <option value="REVIEW">🔵Review</option>
+          <option value="QUESTION">🟣Question</option>
+          <option value="DISCOVERY">🟣Discovery</option>
+          <option value="REPORT">🟤Report</option>
+          <option value="NOTE">🟤Note</option>
+          </select>
+        `,
+    style: {
+      width: "240px",
+      height: "110px",
+      position: "fixed",
+      left,
+      top,
+      backgroundColor: 'var(--ls-primary-background-color)',
+      color: 'var(--ls-primary-text-color)',
+      boxShadow: '1px 2px 5px var(--ls-secondary-background-color)',
     },
-    inputPlaceholder: 'Select a tag',
-    showCancelButton: true,
-    color: sweetAlert2color,
-    background: sweetAlert2background,
-  }).then((answer) => {
-    if (answer) {
-      const { value: tag } = answer;
-      if (tag) {
-        logseq.Editor.getBlock(uuid).then((e) => {
-          if (e) {
-            const content = `${e.content} #${tag} `;
-            logseq.Editor.updateBlock(uuid, content).then(() => {
-              logseq.Editor.insertBlock(uuid, "");
-            });
-          }
-        });
-      }
-    }
-    logseq.hideMainUI();
   });
+  //selectで選択
+  setTimeout(() => {
+    const select = parent.document.getElementById("admonition-select") as HTMLSelectElement;
+    let processing: Boolean = false;
+    if (select) {
+      select.addEventListener("change", async () => {
+        if (processing) return;
+        if (select.value === "") return;
+        processing = true;
+        const block = await logseq.Editor.getBlock(uuid) as BlockEntity;
+        if (block) logseq.Editor.updateBlock(uuid, `${block.content} #${select.value} `).then(() => {
+          logseq.Editor.insertBlock(uuid, "");
+          const element = parent.document.getElementById(logseq.baseInfo.id + "--admonition-selector") as HTMLDivElement | null;
+          if (element) element.remove();
+        });
+        processing = false;
+      });
+    }
+  }, 100);
 }
 
 
@@ -410,8 +414,15 @@ const generateSettings = (): SettingSchemaDesc[] => {
       title: t("Tag Coloring (batch block)"),
       type: "heading",
       default: "",
-      description: t("Accentuate tagged blocks like a panel. ⚠️Words matching the parent page of namespaces can cause duplication, just like with tags."),
+      description: t("Accentuate tagged blocks like a panel"),
       inputAs: "color",
+    },
+    {//⚠️Words matching the parent page of namespaces can cause duplication, just like with tags.
+      key: 'wordsMatchingParentPage',
+      title: t("Apply if it matches a child page of a namespace"),
+      type: "boolean",
+      default: false,
+      description: "default: false",
     },
   );
 
@@ -442,7 +453,6 @@ const generateSettings = (): SettingSchemaDesc[] => {
       },
     );
   });
-
   return settingArray;
 };
 
