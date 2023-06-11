@@ -272,6 +272,7 @@ async function selectAdmonition(uuid) {
       position: "fixed",
       left,
       top,
+      paddingLeft: "1.8em",
       backgroundColor: 'var(--ls-primary-background-color)',
       color: 'var(--ls-primary-text-color)',
       boxShadow: '1px 2px 5px var(--ls-secondary-background-color)',
