@@ -39,7 +39,10 @@ const main = () => {
       await l10nSetup({ builtinTranslations: { ja } });
     } finally {
       /* user settings */
-      userSettings();
+      logseq.useSettingsSchema(generateSettings());
+      setTimeout(() => {
+        logseq.showSettingsUI();
+      }, 300);
     }
   })();
 
@@ -307,32 +310,29 @@ function hex2rgba(hex: string, alpha: number): string {
 }
 
 
-const userSettings = () => {
-  /* https://logseq.github.io/plugins/types/SettingSchemaDesc.html */
-
+/* https://logseq.github.io/plugins/types/SettingSchemaDesc.html */
+const generateSettings = (): SettingSchemaDesc[] => {
   const rainbowColor = [
     "#37306B", "#66347F", "#9E4784", "#D27685", "#9DC08B", "#609966", "#40513B", "#060047", "#B3005E", "#E90064", "#FF5F9E", "#E21818"
   ];
+  const settingArray = [] as SettingSchemaDesc[];
 
-  const generateSettings = () => {
-    const settingArray = [] as SettingSchemaDesc[];
-
-    //option
-    settingArray.push(
-      {
-        key: '',
-        title: t("Option"),
-        type: "heading",
-        default: "",
-        description: "",
-        inputAs: "color",
-      },
-      {
-        key: "admonitions",
-        title: "Admonition by tags (batch block)",
-        type: "boolean",
-        default: true,
-        description: `
+  //option
+  settingArray.push(
+    {
+      key: '',
+      title: t("Option"),
+      type: "heading",
+      default: "",
+      description: "",
+      inputAs: "color",
+    },
+    {
+      key: "admonitions",
+      title: "Admonition by tags (batch block)",
+      type: "boolean",
+      default: true,
+      description: `
         Nest with the tag as the parent.
               🔴#FAILED / #REMEDY, 
               🟠#WARNING / #LEARNED, 
@@ -342,111 +342,110 @@ const userSettings = () => {
               🟣#QUESTION / #DISCOVERY, 
               🟤#REPORT / #NOTE
               `,
-      },
-      {
-        key: "rainbowJournal",
-        title: t("Outline right border"),
-        type: "boolean",
-        default: true,
-        description: t("Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side."),
-      },
-      {
-        key: "todayJournal",
-        title: t("today & yesterday journals coloring"),
-        type: "boolean",
-        default: false,
-        description: t("background-color: yellow & green (**light theme only)"),
-      },
-      {
-        key: "bulletClosedColor",
-        title: t("Choice closed-bullets color"),
-        type: "string",
-        default: "f8b400",
-        description: "",
-        inputAs: "color",
-      },
-      {
-        key: '',
-        title: t("Page Coloring (title and contents)"),
-        type: "heading",
-        default: "",
-        description: t("Accentuate the specified page. Color underline on favorite list on left sidebar."),
-        inputAs: "color",
-      },
-    );
+    },
+    {
+      key: "rainbowJournal",
+      title: t("Outline right border"),
+      type: "boolean",
+      default: true,
+      description: t("Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side."),
+    },
+    {
+      key: "todayJournal",
+      title: t("today & yesterday journals coloring"),
+      type: "boolean",
+      default: false,
+      description: t("background-color: yellow & green (**light theme only)"),
+    },
+    {
+      key: "bulletClosedColor",
+      title: t("Choice closed-bullets color"),
+      type: "string",
+      default: "f8b400",
+      description: "",
+      inputAs: "color",
+    },
+    {
+      key: '',
+      title: t("Page Coloring (title and contents)"),
+      type: "heading",
+      default: "",
+      description: t("Accentuate the specified page. Color underline on favorite list on left sidebar."),
+      inputAs: "color",
+    },
+  );
 
 
-    //page
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
-      settingArray.push(
-        {
-          key: `heading10${idx}`,
-          title: t("Page") + ` [ ${idx} ]`,
-          type: "heading",
-          default: "",
-          description: "",
-        },
-        {
-          key: `pn${idx}`,
-          title: t("Set the word of the page title"),
-          type: "string",
-          default: ``,
-          description: "",
-        },
-        {
-          key: `pc${idx}`,
-          title: t("Choice the background color"),
-          type: "string",
-          default: rainbowColor[idx - 1],
-          description: t("color fades"),
-          inputAs: "color",
-        },
-      );
-    });
-
+  //page
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
     settingArray.push(
       {
-        key: '',
-        title: t("Tag Coloring (batch block)"),
+        key: `heading10${idx}`,
+        title: t("Page") + ` [ ${idx} ]`,
         type: "heading",
         default: "",
-        description: t("Accentuate tagged blocks like a panel. ⚠️Words matching the parent page of namespaces can cause duplication, just like with tags."),
+        description: "",
+      },
+      {
+        key: `pn${idx}`,
+        title: t("Set the word of the page title"),
+        type: "string",
+        default: ``,
+        description: "",
+      },
+      {
+        key: `pc${idx}`,
+        title: t("Choice the background color"),
+        type: "string",
+        default: rainbowColor[idx - 1],
+        description: t("color fades"),
         inputAs: "color",
       },
     );
+  });
 
-    //tag
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
-      settingArray.push(
-        {
-          key: `heading00${idx}`,
-          title: t("#tag") + ` [ ${idx} ]`,
-          type: "heading",
-          default: "",
-          description: "",
-        },
-        {
-          key: `tn${idx}`,
-          title: t("Set the word of the tag"),
-          type: "string",
-          default: ``,
-          description: "without #",
-        },
-        {
-          key: `tc${idx}`,
-          title: t("Choice the background color"),
-          type: "string",
-          default: rainbowColor[idx - 1],
-          description: t("color fades"),
-          inputAs: "color",
-        },
-      );
-    });
+  settingArray.push(
+    {
+      key: '',
+      title: t("Tag Coloring (batch block)"),
+      type: "heading",
+      default: "",
+      description: t("Accentuate tagged blocks like a panel. ⚠️Words matching the parent page of namespaces can cause duplication, just like with tags."),
+      inputAs: "color",
+    },
+  );
 
-    return settingArray;
-  };
-  logseq.useSettingsSchema(generateSettings());
+  //tag
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
+    settingArray.push(
+      {
+        key: `heading00${idx}`,
+        title: t("#tag") + ` [ ${idx} ]`,
+        type: "heading",
+        default: "",
+        description: "",
+      },
+      {
+        key: `tn${idx}`,
+        title: t("Set the word of the tag"),
+        type: "string",
+        default: ``,
+        description: "without #",
+      },
+      {
+        key: `tc${idx}`,
+        title: t("Choice the background color"),
+        type: "string",
+        default: rainbowColor[idx - 1],
+        description: t("color fades"),
+        inputAs: "color",
+      },
+    );
+  });
+
+  return settingArray;
 };
+
 
 // bootstrap
 logseq.ready(main).catch(console.error);
