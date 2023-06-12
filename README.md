@@ -1,4 +1,4 @@
-# Logseq Plugin: Panel Coloring
+# Logseq Plugin: Panel Coloring 🎨
 
 - Accentuate specified pages or tagged blocks by coloring.
 
@@ -9,31 +9,27 @@
 
 ---
 
-## Table of Features
-
-- [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#page-coloring-title-and-contents)
-- [Tag coloring (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#tag-coloring-batch-block)
-- [Admonition Panel by Tag (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
-
-## Document
-
-- Check out [Document](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
-
----
-
-## Demo
+## Features
 
 ### [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
 - it is possible to set up to 12 pages. Set the background color and options in the page titles on settings.
 
    ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
+   
+### [Tag coloring (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#tag-coloring-batch-block)
+
+- It is possible to set up to 12 tags. Set the background color and options in #tag words on settings.
 
 ### [Admonition Panel by Tag (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
 - Nest with the tag as the parent.
 
    ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
+
+## Document
+
+- Check out [Document](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
 
 ---
 
