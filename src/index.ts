@@ -111,8 +111,10 @@ const main = () => {
     } else if (oldSet.todayJournal !== true && newSet.todayJournal === true) {
       logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
     }
-    removeProvideStyle(keyBulletClosed);
-    logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(newSet.bulletClosedColor) });
+    if (oldSet.bulletClosedColor !== newSet.bulletClosedColor) {
+      removeProvideStyle(keyBulletClosed);
+      logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(newSet.bulletClosedColor) });
+    }
   });
 
 
@@ -128,10 +130,9 @@ const main = () => {
 
 
 //set BulletClosed
-const CSSbulletClosed = (color): string => {
-  return `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
+const CSSbulletClosed = (color): string => `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
 div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;outline:5px solid ${hex2rgba(color, 0.6)}
-`};
+`;
 
 
 //for tag
@@ -181,9 +182,7 @@ const FavoriteOverflowCSS = (page: IPage) => {
 
 const removeProvideStyle = (className: string) => {
   const doc = parent.document.head.querySelector(`style[data-injected-style^="${className}"]`) as HTMLStyleElement | null;
-  if (doc !== null) {
-    doc.remove();
-  }
+  if (doc !== null) doc.remove();
 };
 
 
@@ -202,9 +201,7 @@ const provideColoring = (settings) => {
     .map((key) => settings[key]);
   const settingArray: ITag[] = [];
   tcArray.forEach((tc, idx) => {
-    if (tc && tnArray[idx]) {
-      settingArray.push({ name: tnArray[idx].toLowerCase(), color: tc });
-    }
+    if (tc && tnArray[idx]) settingArray.push({ name: tnArray[idx].toLowerCase(), color: tc });
   });
   const thisStyle = settingArray.map(generateTagStyle).join("\n");
   logseq.provideStyle({ key: keyTagColoring, style: thisStyle });
@@ -221,9 +218,7 @@ const provideColoring = (settings) => {
     .map((key) => settings[key]);
   const settingArrayPage: IPage[] = [];
   pcArray.forEach((pc, idx) => {
-    if (pc && pnArray[idx]) {
-      settingArrayPage.push({ name: pnArray[idx].toLowerCase(), color: pc });
-    }
+    if (pc && pnArray[idx]) settingArrayPage.push({ name: pnArray[idx].toLowerCase(), color: pc });
   });
   const thisStylePage = settingArrayPage.map(generatePageStyle).join("\n");//Page Coloring && favorites coloring
   settingArrayPage.map(FavoriteOverflowCSS);//favorite recent remove
@@ -308,13 +303,9 @@ async function selectAdmonition(uuid) {
 
 
 function hex2rgba(hex: string, alpha: number): string {
-  if (!hex) {
-    throw new Error('Invalid hex color value');
-  }
+  if (!hex) throw new Error('Invalid hex color value');
   const hexValue = hex.replace('#', '');
-  if (hexValue.length !== 3 && hexValue.length !== 6) {
-    throw new Error('Invalid hex color value');
-  }
+  if (hexValue.length !== 3 && hexValue.length !== 6) throw new Error('Invalid hex color value');
   const hexArray = hexValue.length === 3 ? hexValue.split('').map(char => char + char) : hexValue.match(/.{2}/g) || [];
   const rgbaArray = hexArray.map(hexChar => parseInt(hexChar, 16));
   rgbaArray.push(alpha);
