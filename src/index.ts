@@ -391,7 +391,7 @@ const generateSettings = (): SettingSchemaDesc[] => {
       },
       {
         key: `pn${idx}`,
-        title: t("Set the word of the page title"),
+        title: t("Set the page title"),
         type: "string",
         default: ``,
         description: "",
@@ -437,7 +437,7 @@ const generateSettings = (): SettingSchemaDesc[] => {
       },
       {
         key: `tn${idx}`,
-        title: t("Set the word of the tag"),
+        title: t("Set the tag name"),
         type: "string",
         default: ``,
         description: "without #",
