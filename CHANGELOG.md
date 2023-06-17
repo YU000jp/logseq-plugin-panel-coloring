@@ -1,3 +1,18 @@
+# [2.5.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.4.2...v2.5.0) (2023-06-17)
+
+
+### Bug Fixes
+
+* **admonition selector:** adjust padding ([f88be1f](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/f88be1fa13be5489a4238afd5b8dde029ed11591))
+* **admonition selector:** support dark theme ([a70ab66](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/a70ab66d38b31fe5c8046c9b22d44fb70b7098a1))
+* **doc:** Update plugin settings ([f8f3a4c](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/f8f3a4c3cab8d501cd15706049410866f15e52f3))
+* **refactor:** Cleanup ([3e9dc91](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/3e9dc916d0509ad5ce2de3c008fa5e02b8ecb94f))
+
+
+### Features
+
+* Color underline also on the recent (on left sidebar) & Cleanup ([03fca33](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/03fca334c70d267665ffe86bea8890e6488f6fba))
+
 ## [2.4.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.4.1...v2.4.2) (2023-06-11)
 
 
