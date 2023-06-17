@@ -40,21 +40,16 @@ const main = () => {
 
   //set today journal coloring
   const keyTodayJournal = "todayJournal";
-  if (logseq.settings?.todayJournal) {
-    logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
-  }
+  if (logseq.settings?.todayJournal) logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
 
   //set rainbow-journal
   const keyRainbowJournal = "rainbowJournal";
-  if (logseq.settings?.rainbowJournal) {
-    logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal });
-  }
+  if (logseq.settings?.rainbowJournal) logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal });
 
   //set admonitions
   const keyAdmonitions = "admonitions";
-  if (logseq.settings?.admonitions) {
-    logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
-  }
+  if (logseq.settings?.admonitions) logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
+
 
   const keyBulletClosed = "bulletClosed";
   logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(logseq.settings?.bulletClosedColor) });
@@ -142,11 +137,11 @@ interface ITag {
 }
 const generateTagStyle = (tag: ITag) => {
   if (logseq.settings!.wordsMatchingParentPage === false) {
-    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']:not[data-refs-self*='"${CSS.escape(tag.name)}/"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}'i]{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"'i]:not[data-refs-self*='"${CSS.escape(tag.name)}/"'i]{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   } else {
-    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}'i]{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"'i]{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   }
 };
 
@@ -155,29 +150,27 @@ interface IPage {
   name: string;
   color: string;
 }
-const generatePageStyle = (page: IPage) => `
-body[data-page="page"] div#main-content-container div.page-blocks-inner div#${CSS.escape(page.name)}{border-radius:0.4em;background-color:${hex2rgba(page.color, 0.2)};outline:2px double ${hex2rgba(page.color, 0.2)};outline-offset:3px}
-body[data-page="page"] div.dark-theme div#main-content-container div.page-blocks-inner div#${CSS.escape(page.name)}{background-color:${hex2rgba(page.color, 0.3)};outline-color:${hex2rgba(page.color, 0.3)}}
-body[data-page="page"] div#main-content-container h1.page-title span[data-ref="${CSS.escape(page.name)}"]{color:${hex2rgba(page.color, 0.8)}}
-body[data-page="page"] div#main-content-container div.page-blocks-inner div#${CSS.escape(page.name)} div.page-properties{background:${hex2rgba(page.color, 0.2)}}
-div#left-sidebar div.favorites li.favorite-item[data-ref*="${CSS.escape(page.name)}"i] span.page-title{border-bottom:2px solid ${hex2rgba(page.color, 1)}}`;
+const generatePageStyle = (page: IPage) => {
+  const name = CSS.escape(page.name);
+  const color02 = hex2rgba(page.color, 0.2);
+  const color03 = hex2rgba(page.color, 0.3);
 
-//favorites:has(title) + recent display none (overflow CSS)
-const FavoriteOverflowCSS = (page: IPage) => {
-  const favorites = parent.document.querySelector('div.favorites') as HTMLDivElement | null;
-  if (favorites !== null) {
-    const favoriteItems = favorites.querySelectorAll(`li.favorite-item[data-ref="${CSS.escape(page.name)}"]`) as NodeListOf<HTMLLIElement>;
-    if (favoriteItems.length > 0) {
-      const nextSibling = favorites.nextElementSibling;
-      if (nextSibling && nextSibling.classList.contains('recent')) {
-        const recentItems = nextSibling.querySelectorAll(`li[data-ref="${CSS.escape(page.name)}"].recent-item.select-none`) as NodeListOf<HTMLLIElement>;
-        if (recentItems.length > 0) {
-          recentItems.forEach(item => item.classList.add('hidden'));
-        }
-      }
-    }
-  }
-};
+  //TODO: Electron バージョンアップ後に消す
+  //favoritesとrecentのページタイトルの色を変更する
+  //動的変更に対応していない。ページを開き直すと反映される。
+  let duplicate = "";
+  if (parent.document.querySelector(`div.favorites li.favorite-item[data-ref="${name}"i]`)) duplicate = `div.recent li.recent-item[data-ref="${name}"i]{display:none}`;
+  return `
+body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name}{border-radius:0.4em;background-color:${color02};outline:2px double ${color02};outline-offset:3px}
+body[data-page="page"] div.dark-theme div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
+body[data-page="page"] div#main-content-container h1.page-title span[data-ref="${name}"i]{color:${page.color}}
+body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name} div.page-properties{background:${color02}}
+div#left-sidebar div.favorites li.favorite-item[data-ref="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[data-ref="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
+div#left-sidebar div.favorites:has(li.favorite-item[data-ref="${name}"]i)+div.recent li.recent-item[data-ref="${name}"i]{display:none}
+${duplicate}
+`};
+//TODO: 現在のElectronのバージョンでは、:has()や:where()はサポートされていない
+
 
 
 const removeProvideStyle = (className: string) => {
@@ -203,8 +196,7 @@ const provideColoring = (settings) => {
   tcArray.forEach((tc, idx) => {
     if (tc && tnArray[idx]) settingArray.push({ name: tnArray[idx].toLowerCase(), color: tc });
   });
-  const thisStyle = settingArray.map(generateTagStyle).join("\n");
-  logseq.provideStyle({ key: keyTagColoring, style: thisStyle });
+  logseq.provideStyle({ key: keyTagColoring, style: settingArray.map(generateTagStyle).join("\n") });
   //tag end
 
   //page
@@ -220,9 +212,8 @@ const provideColoring = (settings) => {
   pcArray.forEach((pc, idx) => {
     if (pc && pnArray[idx]) settingArrayPage.push({ name: pnArray[idx].toLowerCase(), color: pc });
   });
-  const thisStylePage = settingArrayPage.map(generatePageStyle).join("\n");//Page Coloring && favorites coloring
-  settingArrayPage.map(FavoriteOverflowCSS);//favorite recent remove
-  logseq.provideStyle({ key: keyPageColoring, style: thisStylePage });
+  //Page Coloring && favorites coloring
+  logseq.provideStyle({ key: keyPageColoring, style: settingArrayPage.map(generatePageStyle).join("\n") });
   //page end
 };
 
@@ -232,7 +223,7 @@ async function selectAdmonition(uuid) {
   const blockElement = parent.document.getElementsByClassName(uuid) as HTMLCollectionOf<HTMLElement>;
   if (!blockElement) return;
   //エレメントから位置を取得する
-  const rect = blockElement[0].getBoundingClientRect();
+  const rect = blockElement[0].getBoundingClientRect() as DOMRect;
   if (!rect) return;
   const top: string = Number(rect.top + window.pageYOffset - 140) + "px";
   const left: string = Number(rect.left + window.pageXOffset + 100) + "px";
@@ -307,7 +298,7 @@ function hex2rgba(hex: string, alpha: number): string {
   const hexValue = hex.replace('#', '');
   if (hexValue.length !== 3 && hexValue.length !== 6) throw new Error('Invalid hex color value');
   const hexArray = hexValue.length === 3 ? hexValue.split('').map(char => char + char) : hexValue.match(/.{2}/g) || [];
-  const rgbaArray = hexArray.map(hexChar => parseInt(hexChar, 16));
+  let rgbaArray = hexArray.map(hexChar => parseInt(hexChar, 16));
   rgbaArray.push(alpha);
   return `rgba(${rgbaArray.join(',')})`;
 }
