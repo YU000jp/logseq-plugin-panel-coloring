@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.5.0...v2.5.1) (2023-06-17)
+
+
+### Bug Fixes
+
+* Update toolbar button ([d7db99b](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/d7db99bd914b212df2f7af00ffbd698469a5fd1c))
+
 # [2.5.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.4.2...v2.5.0) (2023-06-17)
 
 
