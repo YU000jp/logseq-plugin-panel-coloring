@@ -50,11 +50,6 @@ const main = () => {
   const keyAdmonitions = "admonitions";
   if (logseq.settings?.admonitions) logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
 
-
-  const keyBulletClosed = "bulletClosed";
-  logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(logseq.settings?.bulletClosedColor) });
-
-
   /* toolbarItem */
   logseq.App.registerUIItem("toolbar", {
     key: logseq.baseInfo.id,
@@ -106,10 +101,6 @@ const main = () => {
     } else if (oldSet.todayJournal !== true && newSet.todayJournal === true) {
       logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
     }
-    if (oldSet.bulletClosedColor !== newSet.bulletClosedColor) {
-      removeProvideStyle(keyBulletClosed);
-      logseq.provideStyle({ key: keyBulletClosed, style: CSSbulletClosed(newSet.bulletClosedColor) });
-    }
   });
 
 
@@ -122,12 +113,6 @@ const main = () => {
 
 };
 //main end
-
-
-//set BulletClosed
-const CSSbulletClosed = (color): string => `div#app-container span.bullet{height:9px;width:9px;border-radius:40%;opacity:.6;transition:unset!important}
-div#app-container span.bullet-container.bullet-closed{height:11px;width:11px;outline:5px solid ${hex2rgba(color, 0.6)}
-`;
 
 
 //for tag
@@ -350,14 +335,6 @@ const generateSettings = (): SettingSchemaDesc[] => {
       type: "boolean",
       default: false,
       description: t("background-color: yellow & green (**light theme only)"),
-    },
-    {
-      key: "bulletClosedColor",
-      title: t("Choice closed-bullets color"),
-      type: "string",
-      default: "f8b400",
-      description: "",
-      inputAs: "color",
     },
     {
       key: '',
