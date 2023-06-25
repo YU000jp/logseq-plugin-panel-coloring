@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.5.1...v2.5.2) (2023-06-25)
+
+
+### Bug Fixes
+
+* **remove:** closed-bullets color ([9cfc6dc](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/9cfc6dcec82f5d70b12bc63af2b53e0335657678))
+
 ## [2.5.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.5.0...v2.5.1) (2023-06-17)
 
 
