@@ -140,11 +140,6 @@ const generatePageStyle = (page: IPage) => {
   const color02 = hex2rgba(page.color, 0.2);
   const color03 = hex2rgba(page.color, 0.3);
 
-  //TODO: Electron バージョンアップ後に消す
-  //favoritesとrecentのページタイトルの色を変更する
-  //動的変更に対応していない。ページを開き直すと反映される。
-  let duplicate = "";
-  if (parent.document.querySelector(`div.favorites li.favorite-item[data-ref="${name}"i]`)) duplicate = `div.recent li.recent-item[data-ref="${name}"i]{display:none}`;
   return `
 body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name}{border-radius:0.4em;background-color:${color02};outline:2px double ${color02};outline-offset:3px}
 body[data-page="page"] div.dark-theme div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
@@ -152,9 +147,7 @@ body[data-page="page"] div#main-content-container h1.page-title span[data-ref="$
 body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name} div.page-properties{background:${color02}}
 div#left-sidebar div.favorites li.favorite-item[data-ref="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[data-ref="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
 div#left-sidebar div.favorites:has(li.favorite-item[data-ref="${name}"]i)+div.recent li.recent-item[data-ref="${name}"i]{display:none}
-${duplicate}
 `};
-//TODO: 現在のElectronのバージョンでは、:has()や:where()はサポートされていない
 
 
 
