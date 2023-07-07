@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.5.2...v2.6.0) (2023-07-07)
+
+
+### Features
+
+* **Admonitions:** redesign ([14b7015](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/14b70151e0e117c0a9e39099fb55a30973e8135f))
+
 ## [2.5.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.5.1...v2.5.2) (2023-06-25)
 
 
