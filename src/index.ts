@@ -148,7 +148,7 @@ body[data-page="page"] div#main-content-container div.page-blocks-inner div#${na
 div#left-sidebar div.favorites li.favorite-item[data-ref="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[data-ref="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
 div#left-sidebar div.favorites:has(li.favorite-item[data-ref="${name}"]i)+div.recent li.recent-item[data-ref="${name}"i]{display:none}
 `};
-
+//TODO: 「favoriteとrecentの重複を消す」なぜかパターンマッチがうまくいかない
 
 
 const removeProvideStyle = (className: string) => {
