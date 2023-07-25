@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.0...v2.6.1) (2023-07-25)
+
+
+### Bug Fixes
+
+* **remove:** page border ([a45301d](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/a45301d85121627a5f2f91277a5c9fd23a9efa55))
+
 # [2.6.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.5.2...v2.6.0) (2023-07-07)
 
 
