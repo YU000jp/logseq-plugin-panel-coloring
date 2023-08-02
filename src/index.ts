@@ -122,11 +122,11 @@ interface ITag {
 }
 const generateTagStyle = (tag: ITag) => {
   if (logseq.settings!.wordsMatchingParentPage === false) {
-    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}'i]{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"'i]:not[data-refs-self*='"${CSS.escape(tag.name)}/"'i]{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']:has(a[data-ref='${CSS.escape(tag.name)}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   } else {
-    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}'i]{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"'i]{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   }
 };
 
@@ -143,12 +143,11 @@ const generatePageStyle = (page: IPage) => {
   return `
 body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name}{border-radius:0.4em;background-color:${color02};outline:2px double ${color02};outline-offset:3px}
 body[data-page="page"] div.dark-theme div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
-body[data-page="page"] div#main-content-container h1.page-title span[data-ref="${name}"i]{color:${page.color}}
+body[data-page="page"] div#main-content-container h1.page-title span[data-ref="${name}"]{color:${page.color}}
 body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name} div.page-properties{background:${color02}}
-div#left-sidebar div.favorites li.favorite-item[data-ref="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[data-ref="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
-div#left-sidebar div.favorites:has(li.favorite-item[data-ref="${name}"]i)+div.recent li.recent-item[data-ref="${name}"i]{display:none}
+div#left-sidebar div.favorites li.favorite-item[data-ref="${name}"] span.page-title,div#left-sidebar div.recent li.recent-item[data-ref="${name}"] span.page-title{border-bottom:2px solid ${page.color}}
+div#left-sidebar:has(div.favorites li.favorite-item[data-ref="${name}"]) div.recent li.recent-item[data-ref="${name}"]{display:none}
 `};
-//TODO: 「favoriteとrecentの重複を消す」なぜかパターンマッチがうまくいかない
 
 
 const removeProvideStyle = (className: string) => {
@@ -319,7 +318,7 @@ const generateSettings = (): SettingSchemaDesc[] => {
       key: "rainbowJournal",
       title: t("Outline right border"),
       type: "boolean",
-      default: true,
+      default: false,
       description: t("Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side."),
     },
     {
@@ -381,8 +380,8 @@ const generateSettings = (): SettingSchemaDesc[] => {
       key: 'wordsMatchingParentPage',
       title: t("Apply if it matches a child page of a namespace"),
       type: "boolean",
-      default: false,
-      description: "default: false",
+      default: true,
+      description: "default: true , false: Logseq v0.9.11 or later⚠️",
     },
   );
 
