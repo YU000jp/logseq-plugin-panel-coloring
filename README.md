@@ -16,7 +16,7 @@
 - it is possible to set up to 12 pages. Set the background color and options in the page titles on settings.
 
    ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
-   
+
 ### [Tag coloring (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#tag-coloring-batch-block)
 
 - It is possible to set up to 12 tags. Set the background color and options in #tag words on settings.
