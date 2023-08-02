@@ -1,3 +1,10 @@
+## [2.6.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.1...v2.6.2) (2023-08-02)
+
+
+### Bug Fixes
+
+* **bug:** Tag Coloring not work (not match) ([494c594](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/494c5947bf334a0a0ea365705cae00ff30a57b2d))
+
 ## [2.6.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.0...v2.6.1) (2023-07-25)
 
 
