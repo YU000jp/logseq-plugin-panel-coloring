@@ -1,3 +1,10 @@
+## [2.6.3](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.2...v2.6.3) (2023-08-04)
+
+
+### Bug Fixes
+
+* **bug:** Page Coloring, some are not reflected ([f864f5f](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/f864f5f0ac49abc1b164674ab6d5d0fb44d2debe))
+
 ## [2.6.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.1...v2.6.2) (2023-08-02)
 
 
