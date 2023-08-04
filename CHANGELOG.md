@@ -1,3 +1,10 @@
+## [2.6.4](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.3...v2.6.4) (2023-08-04)
+
+
+### Bug Fixes
+
+* for a block that has only one line ([e8c92ba](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/e8c92bab7cfc64d69577b87dffdcaafa901b2b41))
+
 ## [2.6.3](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.2...v2.6.3) (2023-08-04)
 
 
