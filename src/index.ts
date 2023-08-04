@@ -121,12 +121,13 @@ interface ITag {
   color: string;
 }
 const generateTagStyle = (tag: ITag) => {
+  const name = CSS.escape(tag.name);
   if (logseq.settings!.wordsMatchingParentPage === false) {
-    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']:has(a[data-ref='${CSS.escape(tag.name)}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `div#app-container a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${name}"']:has(a[data-ref='${name}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   } else {
-    return `div#app-container a.tag[data-ref='${CSS.escape(tag.name)}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[haschild="true"][data-refs-self*='"${CSS.escape(tag.name)}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `div#app-container a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+    div#app-container div[haschild="true"][data-refs-self*='"${name}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
   }
 };
 
