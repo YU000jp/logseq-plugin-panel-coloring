@@ -123,11 +123,19 @@ interface ITag {
 const generateTagStyle = (tag: ITag) => {
   const name = CSS.escape(tag.name);
   if (logseq.settings!.wordsMatchingParentPage === false) {
-    return `div#app-container a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[data-refs-self*='"${name}"']:has(a[data-ref='${name}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `
+    body>div#root>div>main>div#app-container {
+      & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+      & div[data-refs-self*='"${name}"']:has(a[data-ref='${name}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
+    }
+    `;
   } else {
-    return `div#app-container a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-    div#app-container div[data-refs-self*='"${name}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}`;
+    return `
+    body>div#root>div>main>div#app-container {
+      & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
+      & div[data-refs-self*='"${name}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
+    }
+    `;
   }
 };
 
@@ -141,12 +149,20 @@ const generatePageStyle = (page: IPage) => {
   const color02 = hex2rgba(page.color, 0.2);
   const color03 = hex2rgba(page.color, 0.3);
   return `
-body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name}{border-radius:0.4em;background-color:${color02};outline:2px double ${color02};outline-offset:3px}
-body[data-page="page"] div.dark-theme div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
-body[data-page="page"] div#main-content-container h1.page-title span[data-ref="${name}"i]{color:${page.color}}
-body[data-page="page"] div#main-content-container div.page-blocks-inner div#${name} div.page-properties{background:${color02}}
-div#left-sidebar div.favorites li.favorite-item[title="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[title="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
-div#left-sidebar:has(div.favorites li.favorite-item[title="${name}"i]) div.recent li.recent-item[title="${name}"i]{display:none}
+body[data-page="page"]>div#root>div {
+  &>main div#main-content-container {
+    & h1.page-title span[data-ref="${name}"i]{color:${page.color}}
+    & div.page-blocks-inner div#${name}{
+      border-radius:0.4em;background-color:${color02};outline:2px double ${color02};outline-offset:3px;
+      & div.page-properties{background:${color02}}
+    }
+  }
+  &.dark-theme>main div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
+}
+body>div#root>div>main div#left-sidebar {
+  & div.favorites li.favorite-item[title="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[title="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
+  &:has(div.favorites li.favorite-item[title="${name}"i]) div.recent li.recent-item[title="${name}"i]{display:none}
+}
 `};
 
 
@@ -229,7 +245,7 @@ async function selectAdmonition(uuid) {
           <option value="NOTE">🟤Note</option>
           </select>
           <style>
-          select#admonition-select {
+          body>div[data-ref="logseq-plugin-panel-coloring"] select#admonition-select {
             background: var(--ls-primary-background-color);
             color: var(--ls-primary-text-color);
             boxShadow: 1px 2px 5px var(--ls-secondary-background-color);

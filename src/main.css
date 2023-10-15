@@ -1,8 +1,40 @@
-body[data-page=home] div#today-queries>div.lazy-visibility{min-height:unset!important}
-body[data-page=home] div#today-queries>div.lazy-visibility>div.shadow{display:none}
-body[data-page=home] div#today-queries div:is(.color-level div.blocks-container,&.color-level){background-color:unset}
-article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=heading001],[data-key=heading002],[data-key=heading003],[data-key=heading004],[data-key=heading005],[data-key=heading006],[data-key=heading007],[data-key=heading008],[data-key=heading009],[data-key=heading0010],[data-key=heading0011],[data-key=heading0012]){color:green}
-article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=heading101],[data-key=heading102],[data-key=heading103],[data-key=heading104],[data-key=heading105],[data-key=heading106],[data-key=heading107],[data-key=heading108],[data-key=heading109],[data-key=heading1010],[data-key=heading1011],[data-key=heading1012]){color:orange}
-article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=pn1],[data-key=pn2],[data-key=pn3],[data-key=pn4],[data-key=pn5],[data-key=pn6],[data-key=pn7],[data-key=pn8],[data-key=pn9],[data-key=pn10],[data-key=pn11],[data-key=pn12],[data-key=tn1],[data-key=tn2],[data-key=tn3],[data-key=tn4],[data-key=tn5],[data-key=tn6],[data-key=tn7],[data-key=tn8],[data-key=tn9],[data-key=tn10],[data-key=tn11],[data-key=tn12]){width:48%}
-body.is-awUi-enabled article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=pc1],[data-key=pc2],[data-key=pc3],[data-key=pc4],[data-key=pc5],[data-key=pc6],[data-key=pc7],[data-key=pc8],[data-key=pc9],[data-key=pc10],[data-key=pc11],[data-key=pc12],[data-key=tc1],[data-key=tc2],[data-key=tc3],[data-key=tc4],[data-key=tc5],[data-key=tc6],[data-key=tc7],[data-key=tc8],[data-key=tc9],[data-key=tc10],[data-key=tc11],[data-key=tc12]){left:48%;margin-top:-4.4em}
-body:not(.is-awUi-enabled) article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=pc1],[data-key=pc2],[data-key=pc3],[data-key=pc4],[data-key=pc5],[data-key=pc6],[data-key=pc7],[data-key=pc8],[data-key=pc9],[data-key=pc10],[data-key=pc11],[data-key=pc12],[data-key=tc1],[data-key=tc2],[data-key=tc3],[data-key=tc4],[data-key=tc5],[data-key=tc6],[data-key=tc7],[data-key=tc8],[data-key=tc9],[data-key=tc10],[data-key=tc11],[data-key=tc12]){left:48%;position:absolute;margin-top:-5.4em}
+body {
+    &[data-page=home]>div#root>div>main>div div#today-queries {
+        &>div.lazy-visibility {
+            min-height: unset !important;
+
+            &>div.shadow {
+                display: none
+            }
+        }
+
+        & div:is(.color-level div.blocks-container, &.color-level) {
+            background-color: unset
+        }
+    }
+
+    & article div[data-id=logseq-plugin-panel-coloring].panel-wrap div {
+        &:is([data-key=heading001], [data-key=heading002], [data-key=heading003], [data-key=heading004], [data-key=heading005], [data-key=heading006], [data-key=heading007], [data-key=heading008], [data-key=heading009], [data-key=heading0010], [data-key=heading0011], [data-key=heading0012]) {
+            color: green
+        }
+
+        &:is([data-key=heading101], [data-key=heading102], [data-key=heading103], [data-key=heading104], [data-key=heading105], [data-key=heading106], [data-key=heading107], [data-key=heading108], [data-key=heading109], [data-key=heading1010], [data-key=heading1011], [data-key=heading1012]) {
+            color: orange
+        }
+
+        &:is([data-key=pn1], [data-key=pn2], [data-key=pn3], [data-key=pn4], [data-key=pn5], [data-key=pn6], [data-key=pn7], [data-key=pn8], [data-key=pn9], [data-key=pn10], [data-key=pn11], [data-key=pn12], [data-key=tn1], [data-key=tn2], [data-key=tn3], [data-key=tn4], [data-key=tn5], [data-key=tn6], [data-key=tn7], [data-key=tn8], [data-key=tn9], [data-key=tn10], [data-key=tn11], [data-key=tn12]) {
+            width: 48%
+        }
+    }
+
+    &.is-awUi-enabled article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=pc1], [data-key=pc2], [data-key=pc3], [data-key=pc4], [data-key=pc5], [data-key=pc6], [data-key=pc7], [data-key=pc8], [data-key=pc9], [data-key=pc10], [data-key=pc11], [data-key=pc12], [data-key=tc1], [data-key=tc2], [data-key=tc3], [data-key=tc4], [data-key=tc5], [data-key=tc6], [data-key=tc7], [data-key=tc8], [data-key=tc9], [data-key=tc10], [data-key=tc11], [data-key=tc12]) {
+        left: 48%;
+        margin-top: -4.4em
+    }
+
+    &:not(.is-awUi-enabled) article div[data-id=logseq-plugin-panel-coloring].panel-wrap div:is([data-key=pc1], [data-key=pc2], [data-key=pc3], [data-key=pc4], [data-key=pc5], [data-key=pc6], [data-key=pc7], [data-key=pc8], [data-key=pc9], [data-key=pc10], [data-key=pc11], [data-key=pc12], [data-key=tc1], [data-key=tc2], [data-key=tc3], [data-key=tc4], [data-key=tc5], [data-key=tc6], [data-key=tc7], [data-key=tc8], [data-key=tc9], [data-key=tc10], [data-key=tc11], [data-key=tc12]) {
+        left: 48%;
+        position: absolute;
+        margin-top: -5.4em
+    }
+}

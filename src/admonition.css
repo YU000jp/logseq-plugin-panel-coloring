@@ -1,28 +1,222 @@
-div#app-container a.tag:is([data-ref=report],[data-ref=note],[data-ref=review]){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(160,82,45,.5)}
-div#app-container div.ls-block:is([data-refs-self*='"report"'],[data-refs-self*='"note"'],[data-refs-self*='"review"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(160,82,45,.24);outline:.14em solid rgba(160,82,45,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"report"'],[data-refs-self*='"note"'],[data-refs-self*='"review"'])::after{content:"🟤";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"report"'],[data-refs-self*='"note"'],[data-refs-self*='"review"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(160,82,45,.7)}
-div#app-container a.tag:is([data-ref=question],[data-ref=discovery]){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(147,112,219,.5)}
-div#app-container div.ls-block:is([data-refs-self*='"question"'],[data-refs-self*='"discovery"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(147,112,219,.24);outline:.14em solid rgba(147,112,219,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"question"'],[data-refs-self*='"discovery"'])::after{content:"🟣";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"question"'],[data-refs-self*='"discovery"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(147,112,219,.7)}
-div#app-container a.tag:is([data-ref=notice],[data-ref=info],[data-ref='review"']){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(30,144,255,.5)}
-div#app-container div.ls-block:is([data-refs-self*='"notice"'],[data-refs-self*='"info"'],[data-refs-self*='"review"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(30,144,255,.24);outline:.14em solid rgba(30,144,255,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"notice"'],[data-refs-self*='"info"'],[data-refs-self*='"review"'])::after{content:"🔵";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"notice"'],[data-refs-self*='"info"'],[data-refs-self*='"review"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(30,144,255,.7)}
-div#app-container a.tag:is([data-ref=success],[data-ref=facts]){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(42,178,123,.6)}
-div#app-container div.ls-block:is([data-refs-self*='"success"'],[data-refs-self*='"facts"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(42,178,123,.24);outline:.14em solid rgba(42,178,123,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"success"'],[data-refs-self*='"facts"'])::after{content:"🟢";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"success"'],[data-refs-self*='"facts"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(42,178,123,.7)}
-div#app-container a.tag:is([data-ref=caution],[data-ref=declaration]){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(217,162,10,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"caution"'],[data-refs-self*='"declaration"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(248,180,0,.24);outline:.14em solid rgba(248,180,0,.8)}
-div#app-container div.ls-block:is([data-refs-self*='"caution"'],[data-refs-self*='"declaration"'])::after{content:"🟡";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"caution"'],[data-refs-self*='"declaration"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(248,180,0,.8)}
-div#app-container a.tag:is([data-ref=warning],[data-ref=learned]){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(255,127,80,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"warning"'],[data-refs-self*='"learned"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(255,127,80,.24);outline:.14em solid rgba(255,127,80,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"warning"'],[data-refs-self*='"learned"'])::after{content:"🟠";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"warning"'],[data-refs-self*='"learned"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(255,127,80,.7)}
-div#app-container a.tag:is([data-ref=failed],[data-ref=remedy]){padding:.1em .5em;border-radius:.4em;border:3px solid transparent;color:inherit;font-size:1.04em;background:rgba(220,20,60,.5)}
-div#app-container div.ls-block:is([data-refs-self*='"failed"'],[data-refs-self*='"remedy"']){padding-top:1em;padding-bottom:1.2em;border-radius:.9em;margin-bottom:1em;background:rgba(220,20,60,.24);outline:.14em solid rgba(220,20,60,.7)}
-div#app-container div.ls-block:is([data-refs-self*='"failed"'],[data-refs-self*='"remedy"'])::after{content:"🔴";font-size:.9em;position:absolute;right:4px;top:4px}
-div#app-container div.ls-block:is([data-refs-self*='"failed"'],[data-refs-self*='"remedy"']):not(:hover,:focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border{width:.6em;background-color:rgba(220,20,60,.7)}
+body>div#root>div>main>div#app-container {
+    & div.ls-block {
+        &:is([data-refs-self*='"caution"'], [data-refs-self*='"declaration"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(248, 180, 0, .24);
+            outline: .14em solid rgba(248, 180, 0, .8);
+
+            &::after {
+                content: "🟡";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(248, 180, 0, .8)
+            }
+        }
+
+        &:is([data-refs-self*='"failed"'], [data-refs-self*='"remedy"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(220, 20, 60, .24);
+            outline: .14em solid rgba(220, 20, 60, .7);
+
+            &::after {
+                content: "🔴";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(220, 20, 60, .7)
+            }
+        }
+
+        &:is([data-refs-self*='"notice"'], [data-refs-self*='"info"'], [data-refs-self*='"review"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(30, 144, 255, .24);
+            outline: .14em solid rgba(30, 144, 255, .7);
+
+            &::after {
+                content: "🔵";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(30, 144, 255, .7)
+            }
+        }
+
+        &:is([data-refs-self*='"question"'], [data-refs-self*='"discovery"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(147, 112, 219, .24);
+            outline: .14em solid rgba(147, 112, 219, .7);
+
+            &::after {
+                content: "🟣";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(147, 112, 219, .7)
+            }
+        }
+
+        &:is([data-refs-self*='"report"'], [data-refs-self*='"note"'], [data-refs-self*='"review"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(160, 82, 45, .24);
+            outline: .14em solid rgba(160, 82, 45, .7);
+
+            &::after {
+                content: "🟤";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(160, 82, 45, .7)
+            }
+        }
+
+        &:is([data-refs-self*='"success"'], [data-refs-self*='"facts"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(42, 178, 123, .24);
+            outline: .14em solid rgba(42, 178, 123, .7);
+
+            &::after {
+                content: "🟢";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(42, 178, 123, .7)
+            }
+        }
+
+        &:is([data-refs-self*='"warning"'], [data-refs-self*='"learned"']) {
+            padding-top: 1em;
+            padding-bottom: 1.2em;
+            border-radius: .9em;
+            margin-bottom: 1em;
+            background: rgba(255, 127, 80, .24);
+            outline: .14em solid rgba(255, 127, 80, .7);
+
+            &::after {
+                content: "🟠";
+                font-size: .9em;
+                position: absolute;
+                right: 4px;
+                top: 4px
+            }
+
+            &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
+                width: .6em;
+                background-color: rgba(255, 127, 80, .7)
+            }
+        }
+    }
+
+    & a.tag {
+        &:is([data-ref=caution], [data-ref=declaration]) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(217, 162, 10, .7)
+        }
+
+        &:is([data-ref=failed], [data-ref=remedy]) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(220, 20, 60, .5)
+        }
+
+        &:is([data-ref=notice], [data-ref=info], [data-ref='review"']) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(30, 144, 255, .5)
+        }
+
+        &:is([data-ref=question], [data-ref=discovery]) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(147, 112, 219, .5)
+        }
+
+        &:is([data-ref=report], [data-ref=note], [data-ref=review]) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(160, 82, 45, .5)
+        }
+
+        &:is([data-ref=success], [data-ref=facts]) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(42, 178, 123, .6)
+        }
+
+        &:is([data-ref=warning], [data-ref=learned]) {
+            padding: .1em .5em;
+            border-radius: .4em;
+            border: 3px solid transparent;
+            color: inherit;
+            font-size: 1.04em;
+            background: rgba(255, 127, 80, .7)
+        }
+    }
+}
