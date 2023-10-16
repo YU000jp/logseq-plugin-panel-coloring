@@ -1,13 +1,13 @@
-import { SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
+import { AppUserConfigs, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
 import { t } from "logseq-l10n";
 
 /* https://logseq.github.io/plugins/types/SettingSchemaDesc.html */
-export const generateSettings = (): SettingSchemaDesc[] => {
+export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
     const rainbowColor = [
         "#37306B", "#66347F", "#9E4784", "#D27685", "#9DC08B", "#609966", "#40513B", "#060047", "#B3005E", "#E90064", "#FF5F9E", "#E21818"
     ];
     const settingArray = [] as SettingSchemaDesc[];
-
+    const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs;
     //option
     settingArray.push(
         {
@@ -20,19 +20,30 @@ export const generateSettings = (): SettingSchemaDesc[] => {
         },
         {
             key: "admonitions",
-            title: "Admonition by tags (batch block)",
+            title: t("Admonition panel by tags"),
             type: "boolean",
             default: true,
             description: `
-        Nest with the tag as the parent.
-              🔴#FAILED / #REMEDY, 
-              🟠#WARNING / #LEARNED, 
-              🟡#CAUTION / #DECLARATION, 
-              🟢#SUCCESS / #FACTS, 
-              🔵#NOTICE / #INFO / #REVIEW, 
-              🟣#QUESTION / #DISCOVERY, 
-              🟤#REPORT / #NOTE
-              `,
+        ${t("Nest with the tag as the parent.")}
+        ${preferredLanguage === "ja" ? `
+                🔴#FAILED: 失敗 / #REMEDY: 対策,
+                🟠#WARNING: 警告 / #LEARNED: 学び,
+                🟡#CAUTION: 注意 / #DECLARATION: 宣言,
+                🟢#SUCCESS: 成功 / #FACTS: 事実,
+                🔵#NOTICE: 通知 / #INFO: 情報 / #REVIEW: レビュー,
+                🟣#QUESTION: 質問 / #DISCOVERY: 発見,
+                🟤#REPORT: 報告 / #NOTE: ノート
+        `: `
+                🔴#FAILED / #REMEDY, 
+                🟠#WARNING / #LEARNED, 
+                🟡#CAUTION / #DECLARATION, 
+                🟢#SUCCESS / #FACTS, 
+                🔵#NOTICE / #INFO / #REVIEW, 
+                🟣#QUESTION / #DISCOVERY, 
+                🟤#REPORT / #NOTE
+        `}
+        ${t("Select one from '🌈Admonition Selector' (bullet menu item).")}
+        `,
         },
         {
             key: "rainbowJournal",
@@ -53,7 +64,7 @@ export const generateSettings = (): SettingSchemaDesc[] => {
             title: t("Page Coloring (title and contents)"),
             type: "heading",
             default: "",
-            description: t("Accentuate the specified page. Underline the page title in the left sidebar."),
+            description: t("Accentuate the specified page. Underline the page title in the left sidebar. The color will be lighter than this color to match the theme."),
             inputAs: "color",
         }
     );
@@ -71,7 +82,7 @@ export const generateSettings = (): SettingSchemaDesc[] => {
             },
             {
                 key: `pn${idx}`,
-                title: t("Set the page title"),
+                title: t("Set the page name"),
                 type: "string",
                 default: ``,
                 description: "",
@@ -81,7 +92,7 @@ export const generateSettings = (): SettingSchemaDesc[] => {
                 title: t("Choice the background color"),
                 type: "string",
                 default: rainbowColor[idx - 1],
-                description: t("color fades"),
+                description: "",
                 inputAs: "color",
             }
         );
@@ -90,10 +101,10 @@ export const generateSettings = (): SettingSchemaDesc[] => {
     settingArray.push(
         {
             key: '',
-            title: t("Tag Coloring (batch block)"),
+            title: t("Tag Coloring"),
             type: "heading",
             default: "",
-            description: t("Accentuate tagged blocks like a panel"),
+            description: t("Accentuate tagged blocks like a panel. Input without #. The color will be lighter than this color to match the theme."),
             inputAs: "color",
         },
         {
@@ -120,14 +131,14 @@ export const generateSettings = (): SettingSchemaDesc[] => {
                 title: t("Set the tag name"),
                 type: "string",
                 default: ``,
-                description: "without #",
+                description: "",
             },
             {
                 key: `tc${idx}`,
                 title: t("Choice the background color"),
                 type: "string",
                 default: rainbowColor[idx - 1],
-                description: t("color fades"),
+                description: "",
                 inputAs: "color",
             }
         );

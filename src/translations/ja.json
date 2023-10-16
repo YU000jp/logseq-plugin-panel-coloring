@@ -1,17 +1,21 @@
 {
     "Options": "オプション",
+    "Admonition panel by tags": "タグでAdmonitionパネル",
     "Outline right border": "右の罫線に色をつける",
-    "Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side.": "ブロックの深さに応じて色をつける",
+    "Color according to nesting depth. As the outline gets deeper, a rainbow appears on the right side.": "ブロックの深さに応じて色がつきます。",
     "today & yesterday journals coloring": "今日と昨日の日誌に色をつける",
     "background-color: yellow & green (**light theme only)": "背景色: 黄色と緑 (**ライトテーマのみ)",
-    "Page Coloring (title and contents)": "Page Coloring (ページのタイトルと内容)",
-    "Accentuate the specified page. Underline the page title in the left sidebar.": "指定したページに色をつける機能です。左サイドバーのページタイトルに色付きの下線を引きます。",
+    "Page Coloring (title and contents)": "Page Coloring (ページに色をつける)",
+    "Accentuate the specified page. Underline the page title in the left sidebar. The color will be lighter than this color to match the theme.": "指定したページ(ページ名とコンテンツ)に色をつける機能。左サイドバーのメニューにあるページ名に下線がつきます。テーマに合わせてこの色よりも薄まります。",
     "Page": "ページ",
-    "Set the page title": "ページタイトルを指定",
+    "Set the page name": "ページ名",
     "Choice the background color": "背景色を選択",
-    "Tag Coloring (batch block)": "Tag Coloring",
-    "Accentuate tagged blocks like a panel": "タグ付けされたブロックに色をつける機能です。「#」なしで入力してください。",
+    "Tag Coloring": "Tag Coloring (タグでカラーパネルを作成する)",
+    "Accentuate tagged blocks like a panel. Input without #. The color will be lighter than this color to match the theme.": "指定したタグのついた親ブロックに色をつける機能。#は不要です。テーマに合わせてこの色よりも薄まります。",
     "Match parent tag? (if the specified tag contains Hierarchy)": "親タグにマッチさせる（階層を含むタグの場合）",
     "#tag": "#タグ",
-    "Set the tag name": "タグを指定"
+    "Set the tag name": "タグ名",
+    "Nest with the tag as the parent.": "親タグのブロックにいずれかのタグをつけてください。",
+    "Select one from '🌈Admonition Selector' (bullet menu item).": "バレットメニューからブロックにタグを挿入できます。\n(ドット・を右クリックして\"🌈Admonitionのタグ選択\"を選ぶ)",
+    "🌈Admonition Selector": "Admonitionのタグ選択"
 }

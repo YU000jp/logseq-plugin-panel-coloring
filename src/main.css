@@ -13,17 +13,36 @@ body {
         }
     }
 
-    & article div[data-id=logseq-plugin-panel-coloring].panel-wrap div {
-        &:is([data-key=heading001], [data-key=heading002], [data-key=heading003], [data-key=heading004], [data-key=heading005], [data-key=heading006], [data-key=heading007], [data-key=heading008], [data-key=heading009], [data-key=heading0010], [data-key=heading0011], [data-key=heading0012]) {
-            color: green
+    & article div[data-id=logseq-plugin-panel-coloring].panel-wrap {
+        & div.heading-item:not([data-key^="heading"]) {
+            margin-top: 3em;
+            border-top-width: 1px;
+            padding-top: 1em;
+
+            & h2 {
+                padding-bottom: .5em;
+            }
         }
 
-        &:is([data-key=heading101], [data-key=heading102], [data-key=heading103], [data-key=heading104], [data-key=heading105], [data-key=heading106], [data-key=heading107], [data-key=heading108], [data-key=heading109], [data-key=heading1010], [data-key=heading1011], [data-key=heading1012]) {
-            color: orange
+        & div.desc-item {
+            & p {
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+            }
         }
 
-        &:is([data-key=pn1], [data-key=pn2], [data-key=pn3], [data-key=pn4], [data-key=pn5], [data-key=pn6], [data-key=pn7], [data-key=pn8], [data-key=pn9], [data-key=pn10], [data-key=pn11], [data-key=pn12], [data-key=tn1], [data-key=tn2], [data-key=tn3], [data-key=tn4], [data-key=tn5], [data-key=tn6], [data-key=tn7], [data-key=tn8], [data-key=tn9], [data-key=tn10], [data-key=tn11], [data-key=tn12]) {
-            width: 48%
+        & div {
+            &:is([data-key=heading001], [data-key=heading002], [data-key=heading003], [data-key=heading004], [data-key=heading005], [data-key=heading006], [data-key=heading007], [data-key=heading008], [data-key=heading009], [data-key=heading0010], [data-key=heading0011], [data-key=heading0012]) {
+                color: green
+            }
+
+            &:is([data-key=heading101], [data-key=heading102], [data-key=heading103], [data-key=heading104], [data-key=heading105], [data-key=heading106], [data-key=heading107], [data-key=heading108], [data-key=heading109], [data-key=heading1010], [data-key=heading1011], [data-key=heading1012]) {
+                color: orange
+            }
+
+            &:is([data-key=pn1], [data-key=pn2], [data-key=pn3], [data-key=pn4], [data-key=pn5], [data-key=pn6], [data-key=pn7], [data-key=pn8], [data-key=pn9], [data-key=pn10], [data-key=pn11], [data-key=pn12], [data-key=tn1], [data-key=tn2], [data-key=tn3], [data-key=tn4], [data-key=tn5], [data-key=tn6], [data-key=tn7], [data-key=tn8], [data-key=tn9], [data-key=tn10], [data-key=tn11], [data-key=tn12]) {
+                width: 48%
+            }
         }
     }
 

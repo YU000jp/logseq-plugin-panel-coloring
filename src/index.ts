@@ -3,8 +3,8 @@ import CSSmain from './main.css?inline';
 import CSStodayJournal from './todayJournal.css?inline';
 import CSSrainbowJournal from './rainbowJournal.css?inline';
 import CSSadmonitions from './admonition.css?inline';
-import { BlockEntity, LSPluginBaseInfo } from "@logseq/libs/dist/LSPlugin.user";
-import { setup as l10nSetup } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
+import { AppUserConfigs, BlockEntity, LSPluginBaseInfo } from "@logseq/libs/dist/LSPlugin.user";
+import { setup as l10nSetup, t } from "logseq-l10n"; //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json";
 import { generateSettings } from "./generateSettings";
 
@@ -16,7 +16,7 @@ const keyPageColoring = "pageColoring";
 const main = async () => {
   await l10nSetup({ builtinTranslations: { ja } });
   /* user settings */
-  logseq.useSettingsSchema(generateSettings());
+  logseq.useSettingsSchema(await generateSettings());
   if (!logseq.settings) {
     setTimeout(() => {
       logseq.showSettingsUI();
@@ -64,14 +64,10 @@ const main = async () => {
   });
 
   /* Block slash command */
-  logseq.Editor.registerSlashCommand('🌈Admonition Selector', async ({ uuid }) => {
-    selectAdmonition(uuid);
-  });
+  logseq.Editor.registerSlashCommand(t("🌈Admonition Selector"), async ({ uuid }) => selectAdmonition(uuid));
 
   /* Block ContextMenuItem  */
-  logseq.Editor.registerBlockContextMenuItem('🌈Admonition Selector', async ({ uuid }) => {
-    selectAdmonition(uuid);
-  });
+  logseq.Editor.registerBlockContextMenuItem(t("🌈Admonition Selector"), async ({ uuid }) => selectAdmonition(uuid));
 
   // Setting changed
   logseq.onSettingsChanged(async (newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
@@ -203,13 +199,32 @@ async function selectAdmonition(uuid) {
   if (!rect) return;
   const top: string = Number(rect.top + window.pageYOffset - 140) + "px";
   const left: string = Number(rect.left + window.pageXOffset + 100) + "px";
+  const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs;
   logseq.provideUI({
     key: "admonition-selector",
     reset: true,
     close: "outside",
     template: `
-          <h3>Admonition Selector</h3>
+          <h3>${t("🌈Admonition Selector")}</h3>
           <select id="admonition-select">
+          ${preferredLanguage === "ja" ? `
+          <option value="">🌈タグを選択</option>
+          <option value="FAILED">🔴Failed :失敗</option>
+          <option value="REMEDY">🔴Remedy :是正</option>
+          <option value="WARNING">🟠Warning :警告</option>
+          <option value="LEARNED">🟠Learned :学習</option>
+          <option value="CAUTION">🟡Caution :注意</option>
+          <option value="DECLARATION">🟡Declaration :宣言</option>
+          <option value="SUCCESS">🟢Success :成功</option>
+          <option value="FACTS">🟢Facts :事実</option>
+          <option value="NOTICE">🔵Notice :通知</option>
+          <option value="INFO">🔵Info :情報</option>
+          <option value="REVIEW">🔵Review :レビュー</option>
+          <option value="QUESTION">🟣Question :質問</option>
+          <option value="DISCOVERY">🟣Discovery :発見</option>
+          <option value="REPORT">🟤Report :報告</option>
+          <option value="NOTE">🟤Note :メモ</option>
+          `: `
           <option value="">🌈Select a tag</option>
           <option value="FAILED">🔴Failed</option>
           <option value="REMEDY">🔴Remedy</option>
@@ -226,6 +241,7 @@ async function selectAdmonition(uuid) {
           <option value="DISCOVERY">🟣Discovery</option>
           <option value="REPORT">🟤Report</option>
           <option value="NOTE">🟤Note</option>
+          `} 
           </select>
           <style>
           body>div[data-ref="logseq-plugin-panel-coloring"] select#admonition-select {
