@@ -17,7 +17,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(248, 180, 0, .8)
             }
         }
@@ -39,7 +39,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(220, 20, 60, .7)
             }
         }
@@ -61,7 +61,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(30, 144, 255, .7)
             }
         }
@@ -83,7 +83,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(147, 112, 219, .7)
             }
         }
@@ -105,7 +105,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(160, 82, 45, .7)
             }
         }
@@ -127,7 +127,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(42, 178, 123, .7)
             }
         }
@@ -149,7 +149,7 @@ body>div#root>div>main>div#app-container {
             }
 
             &:not(:hover, :focus-within)>div.block-main-container+div.block-children-container>div.block-children-left-border {
-                width: .6em;
+                width: .2em;
                 background-color: rgba(255, 127, 80, .7)
             }
         }
