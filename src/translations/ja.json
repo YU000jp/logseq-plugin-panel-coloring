@@ -11,7 +11,7 @@
     "Choice the background color": "背景色を選択",
     "Tag Coloring (batch block)": "Tag Coloring",
     "Accentuate tagged blocks like a panel": "タグ付けされたブロックに色をつける機能です。「#」なしで入力してください。",
-    "Apply if it matches a child page of a namespace": "名前空間の子ページにマッチした場合に適用",
+    "Match parent tag? (if the specified tag contains Hierarchy)": "親タグにマッチさせる（階層を含むタグの場合）",
     "#tag": "#タグ",
     "Set the tag name": "タグを指定"
 }
