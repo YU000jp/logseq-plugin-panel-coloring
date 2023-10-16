@@ -111,7 +111,7 @@ const generateTagStyle = (tag: ITag) => {
   return (logseq.settings!.wordsMatchingParentPage === false ? `
     body>div#root>div>main>div#app-container {
       & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-      & div[data-refs-self*='"${name}"']:has(a[data-ref='${name}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
+      & div[data-refs-self*='"${name}"']:not([data-refs-self*='"${name}/']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
     }
     ` : `
     body>div#root>div>main>div#app-container {
@@ -126,6 +126,7 @@ interface IPage {
   name: string;
   color: string;
 }
+
 const generatePageStyle = (page: IPage) => {
   const name = CSS.escape(page.name);
   const color02 = hex2rgba(page.color, 0.2);
