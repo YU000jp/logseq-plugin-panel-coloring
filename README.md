@@ -23,7 +23,7 @@
 
 ### Admonition Panel by Tag
 
-- Nest with the tag as the parent.
+- Nest with the tag as the parent. Select one from '🌈Admonition Selector' (open from the bullet menu item or input the slash command).
 
    ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
 
