@@ -9,27 +9,25 @@
 
 ---
 
-## Features
+## Options
 
-### [Page Coloring (title and contents)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+### Page Coloring
 
-- it is possible to set up to 12 pages. Set the background color and options in the page titles on settings.
+- Applies the specified color to the page name and its content. It is possible to set up to 12 pages in plugin settings.
 
    ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
 
-### [Tag coloring (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#tag-coloring-batch-block)
+### Tag coloring
 
-- It is possible to set up to 12 tags. Set the background color and options in #tag words on settings.
+- If the parent block contains the tag, the specified color will be applied. It is possible to set up to 12 tags in plugin settings.
 
-### [Admonition Panel by Tag (batch block)](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+### Admonition Panel by Tag
 
 - Nest with the tag as the parent.
 
    ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
 
-## Document
-
-- Check out [Document](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document#admonition-panel-by-tag)
+- [Document here](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document)
 
 ---
 
@@ -37,18 +35,19 @@
 
 ### Install from Logseq Marketplace
 
-- Press `---` on the top right toolbar to open `Plugins`
-
-- Select `Marketplace`
-
-- Type `Panel` in the search field, select it from the search results and install
+- Press `---` on the top right toolbar to open `Plugins`. Select `Marketplace`. Type `Panel` in the search field, select it from the search results and install.
 
    ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
 
 ### Usage
 
-- Open the plugin settings screen from the toolbar button and make the necessary changes.
-   > By default, several items are set to "off" in the initial configuration.
+- Open the plugin settings screen from the toolbar button and make the necessary changes. Several items are set to "off" in the initial configuration.
+  > First, the button is hidden by Logseq. Click this button (![icon](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. And select this (![image](https://github.com/YU000jp/logseq-plugin-panel-coloring/assets/111847207/4ad68d3f-454d-412b-924c-0b919fd0bf89)).
+
+#### Recommend
+
+- [#️⃣Bullet Point Custom Icon plugin](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon)
+  > Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
 ---
 
