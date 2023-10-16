@@ -252,7 +252,7 @@ async function selectAdmonition(uuid) {
           </style>
         `,
     style: {
-      width: "240px",
+      width: "300px",
       height: "110px",
       position: "fixed",
       left,
@@ -273,7 +273,12 @@ async function selectAdmonition(uuid) {
         if (select.value === "") return;
         processing = true;
         const block = await logseq.Editor.getBlock(uuid) as BlockEntity;
-        if (block) logseq.Editor.updateBlock(uuid, `${block.content} #${select.value} `).then(() => {
+        let content = block.content;
+        //contentの中に、\nが含まれている場合、一つ目の\nの前に、" #${select.value} "を挿入する
+        if (content.includes("\n")) content = content.replace("\n", " #" + select.value + " \n");
+        else content = content + " #" + select.value + " ";
+
+        if (block) logseq.Editor.updateBlock(uuid, content).then(() => {
           logseq.Editor.insertBlock(uuid, "");
           const element = parent.document.getElementById(logseq.baseInfo.id + "--admonition-selector") as HTMLDivElement | null;
           if (element) element.remove();
