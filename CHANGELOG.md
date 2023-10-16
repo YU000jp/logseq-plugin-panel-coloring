@@ -1,3 +1,13 @@
+## [2.6.5](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.4...v2.6.5) (2023-10-16)
+
+
+### Bug Fixes
+
+* **bug:** Admonition Selector, parent block that include block properties ([fe9f7e7](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/fe9f7e7331203756344c30123cd54dfc2cf4b3f1))
+* **doc:** plugin settingsの改善、日本語訳 ([96660b9](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/96660b9e2f99e1d59dc817af91370a3802c7ed8f))
+* **fit:** Admonition panel border too bold ([456dd41](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/456dd41df99bffcfb446eaf7690c02dd618399ed))
+* **refactor:** CSS, Match parent tag ([1f6da4e](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/1f6da4e60a019a8ce96aed3375d50365d71cd728))
+
 ## [2.6.4](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.3...v2.6.4) (2023-08-04)
 
 
