@@ -13,21 +13,15 @@ const keyPageColoring = "pageColoring";
 
 
 //main
-const main = () => {
-
-  (async () => {
-    try {
-      await l10nSetup({ builtinTranslations: { ja } });
-    } finally {
-      /* user settings */
-      logseq.useSettingsSchema(generateSettings());
-      if (!logseq.settings) {
-        setTimeout(() => {
-          logseq.showSettingsUI();
-        }, 300);
-      }
-    }
-  })();
+const main = async () => {
+  await l10nSetup({ builtinTranslations: { ja } });
+  /* user settings */
+  logseq.useSettingsSchema(generateSettings());
+  if (!logseq.settings) {
+    setTimeout(() => {
+      logseq.showSettingsUI();
+    }, 300);
+  }
 
   //Logseq bugs fix
   /* Fix "Extra space when journal queries are not active #6773" */
@@ -87,29 +81,20 @@ const main = () => {
     setTimeout(() => {
       provideColoring(newSet);
     }, 100);
-    if (oldSet.admonitions !== false && newSet.admonitions === false) {
-      removeProvideStyle(keyAdmonitions);
-    } else if (oldSet.admonitions !== true && newSet.admonitions === true) {
-      logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
-    }
-    if (oldSet.rainbowJournal !== false && newSet.rainbowJournal === false) {
-      removeProvideStyle(keyRainbowJournal);
-    } else if (oldSet.rainbowJournal !== true && newSet.rainbowJournal === true) {
-      logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal });
-    }
-    if (oldSet.todayJournal !== false && newSet.todayJournal === false) {
-      removeProvideStyle(keyTodayJournal);
-    } else if (oldSet.todayJournal !== true && newSet.todayJournal === true) {
-      logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
-    }
+    if (oldSet.admonitions !== false && newSet.admonitions === false) removeProvideStyle(keyAdmonitions);
+    else if (oldSet.admonitions !== true && newSet.admonitions === true) logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions });
+
+    if (oldSet.rainbowJournal !== false && newSet.rainbowJournal === false) removeProvideStyle(keyRainbowJournal);
+    else if (oldSet.rainbowJournal !== true && newSet.rainbowJournal === true) logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal });
+
+    if (oldSet.todayJournal !== false && newSet.todayJournal === false) removeProvideStyle(keyTodayJournal);
+    else if (oldSet.todayJournal !== true && newSet.todayJournal === true) logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal });
   });
 
 
   logseq.provideModel({
     //toolbar onclick
-    open_color_settings() {
-      logseq.showSettingsUI();
-    }
+    open_color_settings: () => logseq.showSettingsUI()
   });
 
 };
@@ -123,21 +108,17 @@ interface ITag {
 }
 const generateTagStyle = (tag: ITag) => {
   const name = CSS.escape(tag.name);
-  if (logseq.settings!.wordsMatchingParentPage === false) {
-    return `
+  return (logseq.settings!.wordsMatchingParentPage === false ? `
     body>div#root>div>main>div#app-container {
       & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
       & div[data-refs-self*='"${name}"']:has(a[data-ref='${name}']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
     }
-    `;
-  } else {
-    return `
+    ` : `
     body>div#root>div>main>div#app-container {
       & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
       & div[data-refs-self*='"${name}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
     }
-    `;
-  }
+    `);
 };
 
 //for page
