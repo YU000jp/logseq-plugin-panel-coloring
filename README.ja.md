@@ -2,7 +2,7 @@
 
 # Logseq Plugin: *Panel Coloring* パネル カラーリング 🎨
 
-- 特定のページまたはタグ付きブロックを色付けして強調します。
+- 特定のページや、特定のタグをもつブロック に色をつけます。
 
 [![最新リリースバージョン](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
 [![ライセンス](https://img.shields.io/github/license/YU000jp/logseq-plugin-panel-coloring?color=blue)](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/LICENSE)
@@ -11,19 +11,19 @@
 
 ---
 
-## オプション
+## オプション機能
 
-### ページの色付け
+### ページ名 と そのコンテンツの色付け
 
 - 設定で指定した色を、ページ名とそのコンテンツに適用します。プラグイン設定で12ページまでを設定できます。
 
    ![画像](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
 
-### タグの色付け
+### 指定したタグをもつ ブロックを色付けする
 
 - 親ブロックに指定したタグを含まれる場合に、その親ブロックが指定した色のパネルになります。プラグイン設定で12個までタグを設定できます。
 
-### タグによる注意パネル (Admonitions)
+### タグによる Admonitionパネル
 
 - 親ブロックにタグをつけます。 バレット(・)メニューもしくはスラッシュコマンドで'🌈Admonitionのタグ選択'を選ぶと、子ウィンドウが現れます。その選択肢からタグを選択すると、親ブロックにそのタグが挿入されます。
 
