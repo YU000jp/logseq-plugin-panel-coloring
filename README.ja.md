@@ -44,8 +44,8 @@
 
 ### 使用方法
 
-- ツールバーのボタンからプラグイン設定画面を開き、必要な変更を行います。初期設定ではいくつかのアイテムが "オフ" に設定されています。
-  > ツールバーのボタンは最初に、Logseqによって非表示にされています。ツールバーのこのボタンをクリックしてください (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f))。そしてこれを選択してください (![画像](https://github.com/YU000jp/logseq-plugin-panel-coloring/assets/111847207/4ad68d3f-454d-412b-924c-0b919fd0bf89))。
+- ツールバーのボタンからプラグイン設定を開き、必要な変更をおこないます。初期設定ではいくつかの項目が "オフ" に設定されています。
+  > Logseqによってツールバーのボタンは最初に非表示にされています。ツールバーのこのボタンをクリックしてください (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f))。そしてこれを選択してください (![画像](https://github.com/YU000jp/logseq-plugin-panel-coloring/assets/111847207/4ad68d3f-454d-412b-924c-0b919fd0bf89))。
 
 #### 推奨のプラグイン
 
