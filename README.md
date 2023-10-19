@@ -2,34 +2,35 @@
 
 # Logseq Plugin: *Panel Coloring* 🎨
 
-- Accentuate specified pages or tagged blocks by coloring.
+Color specific pages or blocks with specific tags.
+   1. Target page
+   1. Target parent block with tag
+   1. Admonition panel: Targets blocks with tags for Admonition.
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-panel-coloring?color=blue)](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-panel-coloring/total.svg)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
  Published 2022/11/13
 
----
+### Target page
 
-## Options
-
-### Page Coloring
-
-- Applies the specified color to the page name and its content. It is possible to set up to 12 pages in plugin settings.
+- Applies the specified color to the page name and its content. Max 12 pages
 
    ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
 
-### Tag coloring
+### Target parent block with tag
 
-- If the parent block contains the tag, the specified color will be applied. It is possible to set up to 12 tags in plugin settings.
+- If the parent block contains the tag, the specified color will be applied. Max 12 tags
 
-### Admonition Panel by Tag
+### Targets blocks with tags for Admonition
+
+> Like "Admonition panel"
 
 - Nest with the tag as the parent. Select one from '🌈Admonition Selector' (open from the bullet menu item or input the slash command).
 
    ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
 
-- [Document here](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document)
+[Document here](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document)
 
 ---
 
