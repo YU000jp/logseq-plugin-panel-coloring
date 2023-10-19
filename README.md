@@ -1,3 +1,5 @@
+[日本語](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/README.ja.md)
+
 # Logseq Plugin: *Panel Coloring* 🎨
 
 - Accentuate specified pages or tagged blocks by coloring.
