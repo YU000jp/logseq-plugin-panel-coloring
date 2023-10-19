@@ -2,7 +2,10 @@
 
 # Logseq Plugin: *Panel Coloring* パネル カラーリング 🎨
 
-- 特定のページや、特定のタグをもつブロック に色をつけます。
+特定のページや、特定のタグをもつブロック に色をつけます。
+  1. ページ が対象
+  2. タグをもつ親ブロック が対象
+  3. Admonition パネル: Admonition用のタグをもつブロック が対象
 
 [![最新リリースバージョン](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
 [![ライセンス](https://img.shields.io/github/license/YU000jp/logseq-plugin-panel-coloring?color=blue)](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/LICENSE)
