@@ -16,11 +16,10 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
             type: "heading",
             default: "",
             description: "",
-            inputAs: "color",
         },
         {
             key: "admonitions",
-            title: t("Admonition panel by tags"),
+            title: t("Targets blocks with tags for Admonition"),
             type: "boolean",
             default: true,
             description: `
@@ -61,11 +60,10 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
         },
         {
             key: '',
-            title: t("Page Coloring (title and contents)"),
+            title: t("Target page"),
             type: "heading",
             default: "",
-            description: t("Accentuate the specified page. Underline the page title in the left sidebar. The color will be lighter than this color to match the theme."),
-            inputAs: "color",
+            description: t("Applies the specified color to the page name and its content. Underline the page title in the left sidebar. The color will be lighter than this color to match the theme."),
         }
     );
 
@@ -101,11 +99,10 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
     settingArray.push(
         {
             key: '',
-            title: t("Tag Coloring"),
+            title: t("Target parent block with tag"),
             type: "heading",
             default: "",
-            description: t("Accentuate tagged blocks like a panel. Input without #. The color will be lighter than this color to match the theme."),
-            inputAs: "color",
+            description: t("Input without #. If the parent block contains the tag, the specified color will be applied. The color will be lighter than this color to match the theme."),
         },
         {
             key: 'wordsMatchingParentPage',
