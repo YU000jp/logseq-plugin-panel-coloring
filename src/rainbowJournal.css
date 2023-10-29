@@ -1,4 +1,4 @@
-body>div#root>div>main>div#app-container div.block-children {
+body[data-page=home]>div#root>div>main>div#app-container div.block-children {
     & [level="3"] {
         border-right: 4px solid #ff00005c
     }
