@@ -5,7 +5,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(248, 180, 0, .24);
+            background-color: rgba(248, 180, 0, .24);
             outline: .14em solid rgba(248, 180, 0, .8);
 
             &::after {
@@ -27,7 +27,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(220, 20, 60, .24);
+            background-color: rgba(220, 20, 60, .24);
             outline: .14em solid rgba(220, 20, 60, .7);
 
             &::after {
@@ -49,7 +49,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(30, 144, 255, .24);
+            background-color: rgba(30, 144, 255, .24);
             outline: .14em solid rgba(30, 144, 255, .7);
 
             &::after {
@@ -71,7 +71,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(147, 112, 219, .24);
+            background-color: rgba(147, 112, 219, .24);
             outline: .14em solid rgba(147, 112, 219, .7);
 
             &::after {
@@ -93,7 +93,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(160, 82, 45, .24);
+            background-color: rgba(160, 82, 45, .24);
             outline: .14em solid rgba(160, 82, 45, .7);
 
             &::after {
@@ -115,7 +115,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(42, 178, 123, .24);
+            background-color: rgba(42, 178, 123, .24);
             outline: .14em solid rgba(42, 178, 123, .7);
 
             &::after {
@@ -137,7 +137,7 @@ body>div#root>div>main>div#app-container {
             padding-bottom: 1.2em;
             border-radius: .9em;
             margin-bottom: 1em;
-            background: rgba(255, 127, 80, .24);
+            background-color: rgba(255, 127, 80, .24);
             outline: .14em solid rgba(255, 127, 80, .7);
 
             &::after {
@@ -162,7 +162,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(217, 162, 10, .7)
+            background-color: rgba(217, 162, 10, .7)
         }
 
         &:is([data-ref=failed], [data-ref=remedy]) {
@@ -171,7 +171,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(220, 20, 60, .5)
+            background-color: rgba(220, 20, 60, .5)
         }
 
         &:is([data-ref=notice], [data-ref=info], [data-ref='review"']) {
@@ -180,7 +180,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(30, 144, 255, .5)
+            background-color: rgba(30, 144, 255, .5)
         }
 
         &:is([data-ref=question], [data-ref=discovery]) {
@@ -189,7 +189,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(147, 112, 219, .5)
+            background-color: rgba(147, 112, 219, .5)
         }
 
         &:is([data-ref=report], [data-ref=note], [data-ref=review]) {
@@ -198,7 +198,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(160, 82, 45, .5)
+            background-color: rgba(160, 82, 45, .5)
         }
 
         &:is([data-ref=success], [data-ref=facts]) {
@@ -207,7 +207,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(42, 178, 123, .6)
+            background-color: rgba(42, 178, 123, .6)
         }
 
         &:is([data-ref=warning], [data-ref=learned]) {
@@ -216,7 +216,7 @@ body>div#root>div>main>div#app-container {
             border: 3px solid transparent;
             color: inherit;
             font-size: 1.04em;
-            background: rgba(255, 127, 80, .7)
+            background-color: rgba(255, 127, 80, .7)
         }
     }
 }

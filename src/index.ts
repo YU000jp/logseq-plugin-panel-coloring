@@ -99,13 +99,13 @@ const generateTagStyle = (tag: ITag) => {
   const name = CSS.escape(tag.name);
   return (logseq.settings!.wordsMatchingParentPage === false ? `
     body>div#root>div>main>div#app-container {
-      & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-      & div[data-refs-self*='"${name}"']:not([data-refs-self*='"${name}/']){padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
+      & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background-color:${hex2rgba(tag.color, 0.3)}}
+      & div[data-refs-self*='"${name}"']:not([data-refs-self*='"${name}/']){padding:1.4em;border-radius:16px;background-color:${hex2rgba(tag.color, 0.15)}}
     }
     ` : `
     body>div#root>div>main>div#app-container {
-      & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background:${hex2rgba(tag.color, 0.3)}}
-      & div[data-refs-self*='"${name}"']{padding:1.4em;border-radius:16px;background:${hex2rgba(tag.color, 0.15)}}
+      & a.tag[data-ref='${name}']{color:inherit;padding:2px;border-radius:3px;background-color:${hex2rgba(tag.color, 0.3)}}
+      & div[data-refs-self*='"${name}"']{padding:1.4em;border-radius:16px;background-color:${hex2rgba(tag.color, 0.15)}}
     }
     `);
 };
@@ -127,7 +127,7 @@ body{
       & h1.page-title span[data-ref="${name}"i]{color:${page.color}}
       & div.page-blocks-inner div#${name}{
         border-radius:0.4em;background-color:${color02};outline:2px double ${color02};outline-offset:3px;
-        & div.page-properties{background:${color02}}
+        & div.page-properties{background-color:${color02}}
       }
     }
     &.dark-theme>main div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
@@ -240,7 +240,7 @@ async function selectAdmonition(uuid) {
           </select>
           <style>
             body>div[data-ref="logseq-plugin-panel-coloring"] select#admonition-select {
-              background: var(--ls-primary-background-color);
+              background-color: var(--ls-primary-background-color);
               color: var(--ls-primary-text-color);
               boxShadow: 1px 2px 5px var(--ls-secondary-background-color);
             }

@@ -1,14 +1,14 @@
 body[data-page=home]>div#root>div.light-theme>main div#main-content-container div#journals div.journal-item.content {
     &:first-child {
         border-radius: 0.4em;
-        background: rgba(251, 255, 177, .2);
+        background-color: rgba(251, 255, 177, .2);
         outline: 3px double rgba(251, 255, 177, .6);
         outline-offset: 3px
     }
 
     &:nth-of-type(2) {
         border-radius: 0.4em;
-        background: rgba(144, 238, 144, .16);
+        background-color: rgba(144, 238, 144, .16);
         outline: 3px double rgba(144, 238, 144, .6);
         outline-offset: 3px
     }
