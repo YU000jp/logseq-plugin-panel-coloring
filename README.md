@@ -5,7 +5,7 @@
 Color specific pages or blocks with specific tags.
    1. Target page
    1. Target block with tag
-   1. Admonition panel: Targets blocks with tags for Admonition.
+   1. Admonition block
 
 [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
 [![License](https://img.shields.io/github/license/YU000jp/logseq-plugin-panel-coloring?color=blue)](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/LICENSE)
