@@ -12,6 +12,76 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
     settingArray.push(
         {
             key: '',
+            title: t("Target page"),
+            type: "heading",
+            default: "",
+            description: t("Applies the specified color to the page name and its content. Underline the page title in the left sidebar. The color will be lighter than this color to match the theme."),
+        }
+    );
+
+
+    //page
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
+        settingArray.push(
+            {
+                key: `pn${idx}`,
+                title: t("Set the page name"),
+                type: "string",
+                default: ``,
+                description: "",
+            },
+            {
+                key: `pc${idx}`,
+                title: t("Choice the background color"),
+                type: "string",
+                default: rainbowColor[idx - 1],
+                description: "",
+                inputAs: "color",
+            }
+        )
+    })
+
+    settingArray.push(
+        {
+            key: '',
+            title: t("Target parent block with tag"),
+            type: "heading",
+            default: "",
+            description: t("Input without #. If the parent block contains the tag, the specified color will be applied. The color will be lighter than this color to match the theme."),
+        },
+    );
+
+    //tag
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
+        settingArray.push(
+            {
+                key: `tn${idx}`,
+                title: t("Set the tag name"),
+                type: "string",
+                default: ``,
+                description: "",
+            },
+            {
+                key: `tc${idx}`,
+                title: t("Choice the background color"),
+                type: "string",
+                default: rainbowColor[idx - 1],
+                description: "",
+                inputAs: "color",
+            }
+        )
+    })
+
+    settingArray.push(
+        {
+            key: 'wordsMatchingParentPage',
+            title: t("Match parent tag? (if the specified tag contains Hierarchy)"),
+            type: "boolean",
+            default: true,
+            description: "default: true",
+        },
+        {
+            key: '',
             title: t("Options"),
             type: "heading",
             default: "",
@@ -58,87 +128,6 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
             default: false,
             description: t("background-color: yellow & green (**light theme only)"),
         },
-        {
-            key: '',
-            title: t("Target page"),
-            type: "heading",
-            default: "",
-            description: t("Applies the specified color to the page name and its content. Underline the page title in the left sidebar. The color will be lighter than this color to match the theme."),
-        }
-    );
-
-
-    //page
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
-        settingArray.push(
-            {
-                key: `heading10${idx}`,
-                title: t("Page") + ` [ ${idx} ]`,
-                type: "heading",
-                default: "",
-                description: "",
-            },
-            {
-                key: `pn${idx}`,
-                title: t("Set the page name"),
-                type: "string",
-                default: ``,
-                description: "",
-            },
-            {
-                key: `pc${idx}`,
-                title: t("Choice the background color"),
-                type: "string",
-                default: rainbowColor[idx - 1],
-                description: "",
-                inputAs: "color",
-            }
-        )
-    })
-
-    settingArray.push(
-        {
-            key: '',
-            title: t("Target parent block with tag"),
-            type: "heading",
-            default: "",
-            description: t("Input without #. If the parent block contains the tag, the specified color will be applied. The color will be lighter than this color to match the theme."),
-        },
-        {
-            key: 'wordsMatchingParentPage',
-            title: t("Match parent tag? (if the specified tag contains Hierarchy)"),
-            type: "boolean",
-            default: true,
-            description: "default: true",
-        }
-    );
-
-    //tag
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].forEach((idx) => {
-        settingArray.push(
-            {
-                key: `heading00${idx}`,
-                title: t("#tag") + ` [ ${idx} ]`,
-                type: "heading",
-                default: "",
-                description: "",
-            },
-            {
-                key: `tn${idx}`,
-                title: t("Set the tag name"),
-                type: "string",
-                default: ``,
-                description: "",
-            },
-            {
-                key: `tc${idx}`,
-                title: t("Choice the background color"),
-                type: "string",
-                default: rainbowColor[idx - 1],
-                description: "",
-                inputAs: "color",
-            }
-        )
-    })
+    )
     return settingArray
 }
