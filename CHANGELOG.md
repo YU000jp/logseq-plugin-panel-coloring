@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.0...v2.7.1) (2024-04-20)
+
+
+### Bug Fixes
+
+* **bug:** Shifts occurred in Settings ([6338fcb](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/6338fcbc58202c1c6c728ffc2a11141b33d3d471))
+
 # [2.7.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.7...v2.7.0) (2024-04-20)
 
 
