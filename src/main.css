@@ -34,8 +34,9 @@ body article div[data-id=logseq-plugin-panel-coloring].panel-wrap {
             &[data-key^=tn]  {
                 margin-left: 2em;
                 & input[type=text] {
-                    width: 95%;
+                    width: 300px;
                     padding: 0.1em;
+                    font-size: 1.1em;
                 }
             }
 
@@ -50,7 +51,6 @@ body article div[data-id=logseq-plugin-panel-coloring].panel-wrap {
             &[data-key^=tn],
             &[data-key^=pc],
             &[data-key^=tc] {
-                width: 300px;
                 padding: 0.1em;
 
                 &:not(:focus-within)>h2 {
