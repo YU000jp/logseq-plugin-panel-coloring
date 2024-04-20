@@ -1,13 +1,13 @@
-import { AppUserConfigs, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user";
-import { t } from "logseq-l10n";
+import { AppUserConfigs, SettingSchemaDesc } from "@logseq/libs/dist/LSPlugin.user"
+import { t } from "logseq-l10n"
 
 /* https://logseq.github.io/plugins/types/SettingSchemaDesc.html */
 export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
     const rainbowColor = [
         "#37306B", "#66347F", "#9E4784", "#D27685", "#9DC08B", "#609966", "#40513B", "#060047", "#B3005E", "#E90064", "#FF5F9E", "#E21818"
-    ];
-    const settingArray = [] as SettingSchemaDesc[];
-    const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs;
+    ]
+    const settingArray = [] as SettingSchemaDesc[]
+    const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs
     //option
     settingArray.push(
         {
@@ -93,8 +93,8 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
                 description: "",
                 inputAs: "color",
             }
-        );
-    });
+        )
+    })
 
     settingArray.push(
         {
@@ -138,7 +138,7 @@ export const generateSettings = async (): Promise<SettingSchemaDesc[]> => {
                 description: "",
                 inputAs: "color",
             }
-        );
-    });
-    return settingArray;
-};
+        )
+    })
+    return settingArray
+}
