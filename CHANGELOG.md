@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.7...v2.7.0) (2024-04-20)
+
+
+### Features
+
+* pretty Settings ([b1f5067](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/b1f5067bae4ef01a9767412b95dae65d163d1bb7))
+
 ## [2.6.7](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.6.6...v2.6.7) (2023-10-29)
 
 
