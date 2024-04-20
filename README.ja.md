@@ -1,6 +1,6 @@
 [English](https://github.com/YU000jp/logseq-plugin-panel-coloring)
 
-# Logseq Plugin: *Panel Coloring* パネル カラーリング 🎨
+# Logseqプラグイン: *Panel Coloring* 🎨
 
 特定のページや、特定のタグをもつブロック に色をつけます。
   1. ページ が対象
@@ -47,27 +47,21 @@
 - ツールバーのボタンからプラグイン設定を開き、必要な変更をおこないます。初期設定ではいくつかの項目が "オフ" に設定されています。
   > Logseqによってツールバーのボタンは最初に非表示にされています。ツールバーのこのボタンをクリックしてください (![アイコン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f))。そしてこれを選択してください (![画像](https://github.com/YU000jp/logseq-plugin-panel-coloring/assets/111847207/4ad68d3f-454d-412b-924c-0b919fd0bf89))。
 
-#### 推奨のプラグイン
-
-- [#️⃣Bullet Point Custom Icon プラグイン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon)
-  > 特定のタグを持つブレットにカスタムアイコンを適用します。Tablerアイコンまたは絵文字を選択できます。
-
 ---
 
 ## ショーケース / 質問 / アイデア / ヘルプ
 
 > この種の情報を尋ねたり見つけたりするには、[ディスカッション](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) タブに移動します。
 
-## 作者
-
-- GitHub: [YU000jp](https://github.com/YU000jp)
+- 推奨のプラグイン
+  - [#️⃣Bullet Point Custom Icon プラグイン](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon)
+    > 特定のタグを持つブレットにカスタムアイコンを適用します。Tablerアイコンまたは絵文字を選択できます。
 
 ## 先行技術とクレジット
 
-- [swk777/logseq-rainbow-tags](https://github.com/swk777/logseq-rainbow-tags)
-- nmartin84/admonition-panels
-- [benjaffe/logseq-reference-styles](https://github.com/benjaffe/logseq-reference-styles)
-- [icon: Glyphs](https://glyphs.fyi/dir?i=venn&v=poly&w)
+- Logseqプラグイン > [swk777/logseq-rainbow-tags](https://github.com/swk777/logseq-rainbow-tags) , nmartin84/admonition-panels , [benjaffe/logseq-reference-styles](https://github.com/benjaffe/logseq-reference-styles)
+- アイコン > [Glyphs](https://glyphs.fyi/dir?i=venn&v=poly&w)
+- 製作者 > [YU000jp](https://github.com/YU000jp)
 
 ---
 

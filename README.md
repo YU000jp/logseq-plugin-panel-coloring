@@ -47,27 +47,21 @@ Color specific pages or blocks with specific tags.
 - Open the plugin settings screen from the toolbar button and make the necessary changes. Several items are set to "off" in the initial configuration.
   > First, the button is hidden by Logseq. Click this button (![icon](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. And select this (![image](https://github.com/YU000jp/logseq-plugin-panel-coloring/assets/111847207/4ad68d3f-454d-412b-924c-0b919fd0bf89)).
 
-#### Recommend
-
-- [#️⃣Bullet Point Custom Icon plugin](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon)
-  > Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
-
 ---
 
 ## Showcase / Questions / Ideas / Help
 
 > Go to the [discussion](https://github.com/YU000jp/logseq-plugin-some-menu-extender/discussions) tab to ask and find this kind of things.
 
-## Author
-
-- GitHub: [YU000jp](https://github.com/YU000jp)
+- Recommend
+   - [#️⃣Bullet Point Custom Icon plugin](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon)
+   > Apply custom icons for bullets with specific tags. Choice Tabler-icon or emoji.
 
 ## Prior art & Credit
 
-- [swk777/logseq-rainbow-tags](https://github.com/swk777/logseq-rainbow-tags)
-- nmartin84/admonition-panels
-- [benjaffe/logseq-reference-styles](https://github.com/benjaffe/logseq-reference-styles)
-- [icon: Glyphs](https://glyphs.fyi/dir?i=venn&v=poly&w)
+- Logseq plugin > [swk777/logseq-rainbow-tags](https://github.com/swk777/logseq-rainbow-tags) , nmartin84/admonition-panels , [benjaffe/logseq-reference-styles](https://github.com/benjaffe/logseq-reference-styles)
+- Icon > [Glyphs](https://glyphs.fyi/dir?i=venn&v=poly&w)
+- Author > [@YU000jp](https://github.com/YU000jp)
 
 ---
 
