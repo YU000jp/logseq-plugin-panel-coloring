@@ -26,15 +26,18 @@ const main = async () => {
 
   //set today journal coloring
   const keyTodayJournal = "todayJournal"
-  if (logseq.settings?.todayJournal) logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal })
+  if (logseq.settings?.todayJournal)
+    logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal })
 
   //set rainbow-journal
   const keyRainbowJournal = "rainbowJournal"
-  if (logseq.settings?.rainbowJournal) logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal })
+  if (logseq.settings?.rainbowJournal)
+    logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal })
 
   //set admonitions
   const keyAdmonitions = "admonitions"
-  if (logseq.settings?.admonitions) logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions })
+  if (logseq.settings?.admonitions)
+    logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions })
 
   /* toolbarItem */
   logseq.App.registerUIItem("toolbar", {
@@ -65,19 +68,31 @@ const main = async () => {
   // Setting changed
   logseq.onSettingsChanged(async (newSet: LSPluginBaseInfo['settings'], oldSet: LSPluginBaseInfo['settings']) => {
     if (newSet === oldSet) return
+
     removeProvideStyle(keyTagColoring)
     removeProvideStyle(keyPageColoring)
+
     setTimeout(() => {
       provideColoring(newSet)
     }, 100)
-    if (oldSet.admonitions !== false && newSet.admonitions === false) removeProvideStyle(keyAdmonitions)
-    else if (oldSet.admonitions !== true && newSet.admonitions === true) logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions })
 
-    if (oldSet.rainbowJournal !== false && newSet.rainbowJournal === false) removeProvideStyle(keyRainbowJournal)
-    else if (oldSet.rainbowJournal !== true && newSet.rainbowJournal === true) logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal })
+    if (oldSet.admonitions !== false
+      && newSet.admonitions === false) removeProvideStyle(keyAdmonitions)
+    else
+      if (oldSet.admonitions !== true
+        && newSet.admonitions === true) logseq.provideStyle({ key: keyAdmonitions, style: CSSadmonitions })
 
-    if (oldSet.todayJournal !== false && newSet.todayJournal === false) removeProvideStyle(keyTodayJournal)
-    else if (oldSet.todayJournal !== true && newSet.todayJournal === true) logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal })
+    if (oldSet.rainbowJournal !== false
+      && newSet.rainbowJournal === false) removeProvideStyle(keyRainbowJournal)
+    else
+      if (oldSet.rainbowJournal !== true
+        && newSet.rainbowJournal === true) logseq.provideStyle({ key: keyRainbowJournal, style: CSSrainbowJournal })
+
+    if (oldSet.todayJournal !== false
+      && newSet.todayJournal === false) removeProvideStyle(keyTodayJournal)
+    else
+      if (oldSet.todayJournal !== true
+        && newSet.todayJournal === true) logseq.provideStyle({ key: keyTodayJournal, style: CSStodayJournal })
   })
 
 
@@ -161,7 +176,9 @@ const provideColoring = (settings) => {
     .map((key) => settings[key])
   const settingArray: ITag[] = []
   tcArray.forEach((tc, idx) => {
-    if (tc && tnArray[idx]) settingArray.push({ name: tnArray[idx].toLowerCase(), color: tc })
+    if (tc
+      && tnArray[idx])
+      settingArray.push({ name: tnArray[idx].toLowerCase(), color: tc })
   })
   logseq.provideStyle({ key: keyTagColoring, style: settingArray.map(generateTagStyle).join("\n") })
   //tag end
@@ -177,7 +194,9 @@ const provideColoring = (settings) => {
     .map((key) => settings[key])
   const settingArrayPage: IPage[] = []
   pcArray.forEach((pc, idx) => {
-    if (pc && pnArray[idx]) settingArrayPage.push({ name: pnArray[idx].toLowerCase(), color: pc })
+    if (pc
+      && pnArray[idx])
+      settingArrayPage.push({ name: pnArray[idx].toLowerCase(), color: pc })
   })
   //Page Coloring && favorites coloring
   logseq.provideStyle({ key: keyPageColoring, style: settingArrayPage.map(generatePageStyle).join("\n") })
@@ -189,11 +208,14 @@ const provideColoring = (settings) => {
 async function selectAdmonition(uuid) {
   const blockElement = parent.document.getElementsByClassName(uuid) as HTMLCollectionOf<HTMLElement>
   if (!blockElement) return
+
   //エレメントから位置を取得する
   const rect = blockElement[0].getBoundingClientRect() as DOMRect
   if (!rect) return
+
   const top: string = Number(rect.top + window.pageYOffset - 140) + "px"
   const left: string = Number(rect.left + window.pageXOffset + 100) + "px"
+
   const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs
   logseq.provideUI({
     key: "admonition-selector",
@@ -264,20 +286,24 @@ async function selectAdmonition(uuid) {
     let processing: Boolean = false
     if (select) {
       select.addEventListener("change", async () => {
-        if (processing) return
-        if (select.value === "") return
+        if (processing
+          || select.value === "") return
         processing = true
         const block = await logseq.Editor.getBlock(uuid) as BlockEntity
         let content = block.content
         //contentの中に、\nが含まれている場合、一つ目の\nの前に、" #${select.value} "を挿入する
-        if (content.includes("\n")) content = content.replace("\n", " #" + select.value + " \n")
-        else content = content + " #" + select.value + " "
+        if (content.includes("\n"))
+          content = content.replace("\n", " #" + select.value + " \n")
+        else
+          content = content + " #" + select.value + " "
 
-        if (block) logseq.Editor.updateBlock(uuid, content).then(() => {
-          logseq.Editor.insertBlock(uuid, "")
-          const element = parent.document.getElementById(logseq.baseInfo.id + "--admonition-selector") as HTMLDivElement | null
-          if (element) element.remove()
-        })
+        if (block)
+          logseq.Editor.updateBlock(uuid, content).then(() => {
+            logseq.Editor.insertBlock(uuid, "")
+            const element = parent.document.getElementById(logseq.baseInfo.id + "--admonition-selector") as HTMLDivElement | null
+            if (element)
+              element.remove()
+          })
         processing = false
       })
     }
@@ -286,10 +312,16 @@ async function selectAdmonition(uuid) {
 
 
 function hex2rgba(hex: string, alpha: number): string {
-  if (!hex) throw new Error('Invalid hex color value')
+  if (!hex)
+    throw new Error('Invalid hex color value')
+
   const hexValue = hex.replace('#', '')
-  if (hexValue.length !== 3 && hexValue.length !== 6) throw new Error('Invalid hex color value')
-  const hexArray = hexValue.length === 3 ? hexValue.split('').map(char => char + char) : hexValue.match(/.{2}/g) || []
+  if (hexValue.length !== 3
+    && hexValue.length !== 6)
+    throw new Error('Invalid hex color value')
+  const hexArray = hexValue.length === 3 ?
+    hexValue.split('').map(char => char + char)
+    : hexValue.match(/.{2}/g) || []
   let rgbaArray = hexArray.map(hexChar => parseInt(hexChar, 16))
   rgbaArray.push(alpha)
   return `rgba(${rgbaArray.join(',')})`
