@@ -1,3 +1,10 @@
+## [2.7.3](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.2...v2.7.3) (2024-05-26)
+
+
+### Bug Fixes
+
+* **bug:** Admonition > Apply only to tags [#30](https://github.com/YU000jp/logseq-plugin-panel-coloring/issues/30) ([560da46](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/560da467baf676107a3a6507871a4de5cf753b23))
+
 ## [2.7.2](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.1...v2.7.2) (2024-05-26)
 
 
