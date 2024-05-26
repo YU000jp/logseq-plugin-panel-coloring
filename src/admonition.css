@@ -1,6 +1,6 @@
 body>div#root>div>main>div#app-container {
     & div.ls-block {
-        &:is([data-refs-self*='"caution"'], [data-refs-self*='"declaration"']) {
+        &:is([data-refs-self*='"caution"'], [data-refs-self*='"declaration"']):has(a.tag:is([data-ref=caution], [data-ref=declaration])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -20,9 +20,18 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(248, 180, 0, .8)
             }
+
+            & a.tag:is([data-ref=caution], [data-ref=declaration]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(217, 162, 10, .7)
+            }
         }
 
-        &:is([data-refs-self*='"failed"'], [data-refs-self*='"remedy"']) {
+        &:is([data-refs-self*='"failed"'], [data-refs-self*='"remedy"']):has(a.tag:is([data-ref=failed], [data-ref=remedy])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -42,9 +51,18 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(220, 20, 60, .7)
             }
+
+            & a.tag:is([data-ref=failed], [data-ref=remedy]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(220, 20, 60, .5)
+            }
         }
 
-        &:is([data-refs-self*='"notice"'], [data-refs-self*='"info"'], [data-refs-self*='"review"']) {
+        &:is([data-refs-self*='"notice"'], [data-refs-self*='"info"'], [data-refs-self*='"review"']):has(a.tag:is([data-ref=notice], [data-ref=info], [data-ref=review])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -64,9 +82,18 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(30, 144, 255, .7)
             }
+
+            & a.tag:is([data-ref=notice], [data-ref=info], [data-ref=review]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(30, 144, 255, .5)
+            }
         }
 
-        &:is([data-refs-self*='"question"'], [data-refs-self*='"discovery"']) {
+        &:is([data-refs-self*='"question"'], [data-refs-self*='"discovery"']):has(a.tag:is([data-ref=question], [data-ref=discovery])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -86,9 +113,18 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(147, 112, 219, .7)
             }
+
+            & a.tag:is([data-ref=question], [data-ref=discovery]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(147, 112, 219, .5)
+            }
         }
 
-        &:is([data-refs-self*='"report"'], [data-refs-self*='"note"'], [data-refs-self*='"review"']) {
+        &:is([data-refs-self*='"report"'], [data-refs-self*='"note"'], [data-refs-self*='"review"']):has(a.tag:is([data-ref=report], [data-ref=note], [data-ref=review])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -108,9 +144,18 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(160, 82, 45, .7)
             }
+
+            & a.tag:is([data-ref=report], [data-ref=note], [data-ref=review]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(160, 82, 45, .5)
+            }
         }
 
-        &:is([data-refs-self*='"success"'], [data-refs-self*='"facts"']) {
+        &:is([data-refs-self*='"success"'], [data-refs-self*='"facts"']):has(a.tag:is([data-ref=success], [data-ref=facts])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -130,9 +175,18 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(42, 178, 123, .7)
             }
+
+            & a.tag:is([data-ref=success], [data-ref=facts]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(42, 178, 123, .6)
+            }
         }
 
-        &:is([data-refs-self*='"warning"'], [data-refs-self*='"learned"']) {
+        &:is([data-refs-self*='"warning"'], [data-refs-self*='"learned"']):has(a.tag:is([data-ref=warning], [data-ref=learned])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -152,71 +206,15 @@ body>div#root>div>main>div#app-container {
                 width: .2em;
                 background-color: rgba(255, 127, 80, .7)
             }
-        }
-    }
 
-    & a.tag {
-        &:is([data-ref=caution], [data-ref=declaration]) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(217, 162, 10, .7)
-        }
-
-        &:is([data-ref=failed], [data-ref=remedy]) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(220, 20, 60, .5)
-        }
-
-        &:is([data-ref=notice], [data-ref=info], [data-ref='review"']) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(30, 144, 255, .5)
-        }
-
-        &:is([data-ref=question], [data-ref=discovery]) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(147, 112, 219, .5)
-        }
-
-        &:is([data-ref=report], [data-ref=note], [data-ref=review]) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(160, 82, 45, .5)
-        }
-
-        &:is([data-ref=success], [data-ref=facts]) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(42, 178, 123, .6)
-        }
-
-        &:is([data-ref=warning], [data-ref=learned]) {
-            padding: .1em .5em;
-            border-radius: .4em;
-            border: 3px solid transparent;
-            color: inherit;
-            font-size: 1.04em;
-            background-color: rgba(255, 127, 80, .7)
+            & a.tag:is([data-ref=warning], [data-ref=learned]) {
+                padding: .1em .5em;
+                border-radius: .4em;
+                border: 3px solid transparent;
+                color: inherit;
+                font-size: 1.04em;
+                background-color: rgba(255, 127, 80, .7)
+            }
         }
     }
 }
