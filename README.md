@@ -1,4 +1,3 @@
-
 # Logseq Plugin: *Panel Coloring* 🎨
 
 Color specific pages or blocks with specific tags.
