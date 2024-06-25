@@ -1,9 +1,9 @@
 # Logseq Plugin: *Panel Coloring* 🎨
 
-Color specific pages or blocks with specific tags.
-   1. Target page
-   1. Target block with tag
-   1. Admonition block
+- Color specific pages or blocks with specific tags.
+  1. Target page
+  1. Target block with tag
+  1. Admonition block
 
 <div align="right">
 
