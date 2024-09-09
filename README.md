@@ -5,6 +5,9 @@
   1. Target block with tag
   1. Admonition block
 
+> [!WARNING]
+This plugin does not work with Logseq db version.
+
 <div align="right">
 
 [English](https://github.com/YU000jp/logseq-plugin-panel-coloring)/[日本語](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/README.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)

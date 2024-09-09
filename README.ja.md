@@ -5,6 +5,9 @@
   2. タグをもつ親ブロック が対象
   3. Admonition パネル: Admonition用のタグをもつブロック が対象
 
+> [!WARNING]
+>このプラグインはLogseq dbバージョンでは動作しません。
+
 <div align="right">
 
 [English](https://github.com/YU000jp/logseq-plugin-panel-coloring)/[日本語](https://github.com/YU000jp/logseq-plugin-panel-coloring/blob/main/README.ja.md) [![latest release version](https://img.shields.io/github/v/release/YU000jp/logseq-plugin-panel-coloring)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
