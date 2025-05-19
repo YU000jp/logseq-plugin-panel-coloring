@@ -1,9 +1,46 @@
-# Logseq Plugin: *Panel Coloring* 🎨
+# Logseq Plugin: Panel Coloring 🎨
 
-- Color specific pages or blocks with specific tags.
-  1. Target page
-  1. Target block with tag
-  1. Admonition block
+> Enhance your Logseq pages with custom colors and panels
+
+## Features
+
+### 1. Page Coloring
+- Apply custom colors to specific pages and their content
+- Color underlines in sidebar for easy navigation 
+- Support up to 12 pages
+
+   ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
+
+### 2. Tag-based Panels 
+- Automatically color blocks containing specified tags
+- Configure up to 12 different tag-color combinations
+- Parent block highlighting for better organization
+
+### 3. Admonition Panels
+- Quick insert preset styled panels via slash command
+- 15 pre-designed panel styles (Note, Warning, Info etc.)
+- Perfect for highlighting important content
+
+   ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
+
+[Document here](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document)
+
+## Installation
+
+1. Open Logseq
+2. Go to `Settings > Plugins > Marketplace`
+3. Search for "Panel Coloring"
+4. Click Install
+
+   ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
+
+## Usage
+
+1. Click the plugin icon in toolbar (🎨) to open settings
+2. Configure your desired colors for pages and tags
+3. Use slash command `/admonition` to insert styled panels
+
+---
 
 > [!WARNING]
 This plugin does not work with Logseq db version.
@@ -15,41 +52,6 @@ This plugin does not work with Logseq db version.
 [![Downloads](https://img.shields.io/github/downloads/YU000jp/logseq-plugin-panel-coloring/total.svg)](https://github.com/YU000jp/logseq-plugin-panel-coloring/releases)
  Published 20221113 <a href="https://www.buymeacoffee.com/yu000japan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=yu000japan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" /></a>
  </div>
-
-### Target page
-
-- Applies the specified color to the page name and its content. Max 12 pages
-
-   ![image](https://user-images.githubusercontent.com/111847207/224817899-44220e25-3c28-4ea6-9f9a-5892241df95a.gif)
-
-### Target block with tag
-
-- If the parent block contains the tag, the specified color will be applied. Max 12 tags
-
-### Admonition block
-
-> Like "Admonition panel"
-
-- Nest with the tag as the parent. Select one from '🌈Admonition Selector' (open from the bullet menu item or input the slash command).
-
-   ![image](https://user-images.githubusercontent.com/111847207/207467377-e307a412-b9c1-4889-b110-3f69e3f00007.png)
-
-[Document here](https://github.com/YU000jp/logseq-plugin-panel-coloring/wiki/English-Document)
-
----
-
-## Getting Started
-
-### Install from Logseq Marketplace
-
-- Press `---` on the top right toolbar to open `Plugins`. Select `Marketplace`. Type `Panel` in the search field, select it from the search results and install.
-
-   ![image](https://user-images.githubusercontent.com/111847207/229359195-84732952-d385-4689-af1e-2cc7cc9d491f.png)
-
-### Usage
-
-- Open the plugin settings screen from the toolbar button and make the necessary changes. Several items are set to "off" in the initial configuration.
-  > First, the button is hidden by Logseq. Click this button (![icon](https://github.com/YU000jp/logseq-plugin-bullet-point-custom-icon/assets/111847207/136f9d0f-9dcf-4942-9821-c9f692fcfc2f)) on the toolbar. And select this (![image](https://github.com/YU000jp/logseq-plugin-panel-coloring/assets/111847207/4ad68d3f-454d-412b-924c-0b919fd0bf89)).
 
 ---
 
