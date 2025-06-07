@@ -167,7 +167,8 @@ body{
     &.dark-theme>main div#main-content-container div.page-blocks-inner div#${name}{background-color:${color03};outline-color:${color03}}
   }
   &>div#root>div>main div#left-sidebar {
-    & div.favorites li.favorite-item[title="${name}"i] span.page-title,div#left-sidebar div.recent li.recent-item[title="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
+    & div.favorites li.favorite-item[title="${name}"i] span.page-title,
+    & div.recent li.recent-item[title="${name}"i] span.page-title{border-bottom:2px solid ${page.color}}
     &:has(div.favorites li.favorite-item[title="${name}"i]) div.recent li.recent-item[title="${name}"i]{display:none}
   }
 }
