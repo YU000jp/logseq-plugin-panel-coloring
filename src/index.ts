@@ -26,8 +26,14 @@ const main = async () => {
 
   // バージョンチェック
   logseqVersionMd = await checkLogseqVersion()
-  // DBグラフチェック
-  logseqDbGraph = await checkDbGraph()
+
+  if (logseqVersionMd === false) {
+    // Logseq ver 0.10.*以下にしか対応していない
+    logseq.UI.showMsg("The ’Panel Coloring’ plugin only supports Logseq ver 0.10.* and below.", "warning", { timeout: 5000 })
+    return
+  }
+  // // DBグラフチェック
+  // logseqDbGraph = await checkDbGraph()
 
   await l10nSetup({ builtinTranslations: { ja } })
   /* user settings */
@@ -154,7 +160,7 @@ const generatePageStyle = (page: IPage) => {
   const name = CSS.escape(page.name)
   const color02 = hex2rgba(page.color, 0.2)
   const color03 = hex2rgba(page.color, 0.3)
-  return `
+  return logseqVersionMd === true ? `
 body{
   &[data-page="page"]>div#root>div {
     &>main div#main-content-container {
@@ -172,7 +178,9 @@ body{
     &:has(div.favorites li.favorite-item[title="${name}"i]) div.recent li.recent-item[title="${name}"i]{display:none}
   }
 }
-`}
+`: "" // DB版では、いくつかの機能は非対応にする
+}
+
 
 
 const removeProvideStyle = (className: string) => {
