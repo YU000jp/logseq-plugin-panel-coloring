@@ -1,3 +1,12 @@
+## [2.7.4](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.3...v2.7.4) (2025-06-07)
+
+
+### Bug Fixes
+
+* **bug:** CSS ([ef502e0](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/ef502e0ba479a2e955e72bfed67d909d774e3fc5))
+* provideUI() DOM for DB model [#32](https://github.com/YU000jp/logseq-plugin-panel-coloring/issues/32) ([8500cd8](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/8500cd803adce4acd0227fe2f033fb5e532c3314))
+* Unsupported models should not be allowed to work. [#32](https://github.com/YU000jp/logseq-plugin-panel-coloring/issues/32) ([5ea8776](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/5ea8776a023a099c82ad827e5858001db5faa526))
+
 ## [2.7.3](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.2...v2.7.3) (2024-05-26)
 
 
