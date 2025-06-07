@@ -3,7 +3,7 @@
 > Enhance your Logseq pages with custom colors and panels
 
 > [!WARNING]
-This plugin does not work with Logseq db version.
+This plugin does not work with Logseq DB model. (Cannot provide Logseq DB model compatibility)
 
 <div align="right">
 
