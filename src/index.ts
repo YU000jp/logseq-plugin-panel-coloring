@@ -3,7 +3,7 @@ import CSSmain from './main.css?inline'
 import CSStodayJournal from './todayJournal.css?inline'
 import CSSrainbowJournal from './rainbowJournal.css?inline'
 import CSSadmonitions from './admonition.css?inline'
-import { AppUserConfigs, BlockEntity, LSPluginBaseInfo } from "@logseq/libs/dist/LSPlugin.user"
+import { AppInfo, AppUserConfigs, BlockEntity, LSPluginBaseInfo } from "@logseq/libs/dist/LSPlugin.user"
 import { setup as l10nSetup, t } from "logseq-l10n" //https://github.com/sethyuan/logseq-l10n
 import ja from "./translations/ja.json"
 import { generateSettings } from "./generateSettings"
@@ -11,9 +11,24 @@ import { generateSettings } from "./generateSettings"
 const keyTagColoring = "tagColoring"
 const keyPageColoring = "pageColoring"
 
+let processingResetForm = false
+let logseqVersion: string = "" //バージョンチェック用
+let logseqVersionMd: boolean = false //バージョンチェック用
+let logseqDbGraph: boolean = false
+// export const getLogseqVersion = () => logseqVersion //バージョンチェック用
+export const booleanLogseqVersionMd = () => logseqVersionMd //バージョンチェック用
+export const booleanDbGraph = () => logseqDbGraph //バージョンチェック用
+
 
 //main
 const main = async () => {
+
+
+  // バージョンチェック
+  logseqVersionMd = await checkLogseqVersion()
+  // DBグラフチェック
+  logseqDbGraph = await checkDbGraph()
+
   await l10nSetup({ builtinTranslations: { ja } })
   /* user settings */
   logseq.useSettingsSchema(await generateSettings())
@@ -101,6 +116,10 @@ const main = async () => {
     open_color_settings: () => logseq.showSettingsUI()
   })
 
+
+  logseq.App.onCurrentGraphChanged(async () => {
+    logseqDbGraph = await checkDbGraph()
+  })
 }
 //main end
 
@@ -205,16 +224,19 @@ const provideColoring = (settings) => {
 
 
 //admonition selector
-async function selectAdmonition(uuid) {
-  const blockElement = parent.document.getElementsByClassName(uuid) as HTMLCollectionOf<HTMLElement>
+async function selectAdmonition(uuid: string) {
+  const blockElement = logseqVersionMd === true ?
+    (parent.document.getElementsByClassName(uuid) as HTMLCollectionOf<HTMLElement>)[0]
+    : parent.document.getElementById(`ls-block-${uuid}`) as HTMLElement
   if (!blockElement) return
 
   //エレメントから位置を取得する
-  const rect = blockElement[0].getBoundingClientRect() as DOMRect
+  const rect = blockElement.getBoundingClientRect() as DOMRect
   if (!rect) return
 
   const top: string = Number(rect.top + window.pageYOffset - 140) + "px"
   const left: string = Number(rect.left + window.pageXOffset + 100) + "px"
+
 
   const { preferredLanguage } = await logseq.App.getUserConfigs() as AppUserConfigs
   logseq.provideUI({
@@ -327,6 +349,37 @@ function hex2rgba(hex: string, alpha: number): string {
   return `rgba(${rgbaArray.join(',')})`
 }
 
+
+// MDモデルかどうかのチェック DBモデルはfalse
+const checkLogseqVersion = async (): Promise<boolean> => {
+  const logseqInfo = (await logseq.App.getInfo("version")) as AppInfo | any
+  //  0.11.0もしくは0.11.0-alpha+nightly.20250427のような形式なので、先頭の3つの数値(1桁、2桁、2桁)を正規表現で取得する
+  const version = logseqInfo.match(/(\d+)\.(\d+)\.(\d+)/)
+  if (version) {
+    logseqVersion = version[0] //バージョンを取得
+    // console.log("logseq version: ", logseqVersion)
+
+    // もし バージョンが0.10.*系やそれ以下ならば、logseqVersionMdをtrueにする
+    if (logseqVersion.match(/0\.([0-9]|10)\.\d+/)) {
+      logseqVersionMd = true
+      // console.log("logseq version is 0.10.* or lower")
+      return true
+    } else logseqVersionMd = false
+  } else logseqVersion = "0.0.0"
+  return false
+}
+
+// DBグラフかどうかのチェック DBグラフだけtrue
+const checkDbGraph = async (): Promise<boolean> => {
+  const element = parent.document.querySelector(
+    "div.block-tags",
+  ) as HTMLDivElement | null // ページ内にClassタグが存在する  WARN:: ※DOM変更の可能性に注意
+  if (element) {
+    logseqDbGraph = true
+    return true
+  } else logseqDbGraph = false
+  return false
+}
 
 // bootstrap
 logseq.ready(main).catch(console.error)
