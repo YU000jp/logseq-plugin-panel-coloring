@@ -124,7 +124,7 @@ body>div#root>div>main>div#app-container {
             }
         }
 
-        &:is([data-refs-self*='"report"'], [data-refs-self*='"note"'], [data-refs-self*='"review"']):has(a.tag:is([data-ref=report], [data-ref=note], [data-ref=review])) {
+        &:is([data-refs-self*='"report"'], [data-refs-self*='"note"']):has(a.tag:is([data-ref=report], [data-ref=note])) {
             padding-top: 1em;
             padding-bottom: 1.2em;
             border-radius: .9em;
@@ -145,7 +145,7 @@ body>div#root>div>main>div#app-container {
                 background-color: rgba(160, 82, 45, .7)
             }
 
-            & a.tag:is([data-ref=report], [data-ref=note], [data-ref=review]) {
+            & a.tag:is([data-ref=report], [data-ref=note]) {
                 padding: .1em .5em;
                 border-radius: .4em;
                 border: 3px solid transparent;
