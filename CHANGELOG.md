@@ -1,3 +1,10 @@
+## [2.7.5](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.4...v2.7.5) (2025-06-29)
+
+
+### Bug Fixes
+
+* **bug:** The "Review" Admonition panel gets the wrong background color. [#33](https://github.com/YU000jp/logseq-plugin-panel-coloring/issues/33) [#34](https://github.com/YU000jp/logseq-plugin-panel-coloring/issues/34) ([0b5714e](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/0b5714ef94b3640f41062a52b64fab414c85f79d))
+
 ## [2.7.4](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.3...v2.7.4) (2025-06-07)
 
 
