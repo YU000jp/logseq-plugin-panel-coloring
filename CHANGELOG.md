@@ -1,3 +1,10 @@
+## [2.7.6](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.5...v2.7.6) (2026-10-03)
+
+
+### Bug Fixes
+
+* Logseq OG と DBグラフ検出の修正 ([a46e40e](https://github.com/YU000jp/logseq-plugin-panel-coloring/commit/a46e40e95457fc213dcdf4130167d12999319661))
+
 ## [2.7.5](https://github.com/YU000jp/logseq-plugin-panel-coloring/compare/v2.7.4...v2.7.5) (2025-06-29)
 
 
