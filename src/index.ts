@@ -13,7 +13,7 @@ const keyPageColoring = "pageColoring"
 
 let processingResetForm = false
 let logseqVersion: string = "" //バージョンチェック用
-let logseqVersionMd: boolean = false //バージョンチェック用
+let logseqVersionMd: boolean = false //旧UI世代(0.10.*以下または Logseq OG 1.*)かどうか
 let logseqDbGraph: boolean = false
 // export const getLogseqVersion = () => logseqVersion //バージョンチェック用
 export const booleanLogseqVersionMd = () => logseqVersionMd //バージョンチェック用
@@ -28,8 +28,8 @@ const main = async () => {
   logseqVersionMd = await checkLogseqVersion()
 
   if (logseqVersionMd === false) {
-    // Logseq ver 0.10.*以下にしか対応していない
-    logseq.UI.showMsg("The ’Panel Coloring’ plugin only supports Logseq ver 0.10.* and below.", "warning", { timeout: 5000 })
+    // Logseq ver 0.10.*以下と Logseq OG(1.*系)にのみ対応している
+    logseq.UI.showMsg("The ’Panel Coloring’ plugin only supports Logseq ver 0.10.* and below, and Logseq OG (1.*).", "warning", { timeout: 5000 })
     return
   }
   // // DBグラフチェック
@@ -359,19 +359,25 @@ function hex2rgba(hex: string, alpha: number): string {
 }
 
 
-// MDモデルかどうかのチェック DBモデルはfalse
+// 旧UI世代(0.10.*以下または Logseq OG 1.*系)かどうかのチェック
 const checkLogseqVersion = async (): Promise<boolean> => {
   const logseqInfo = (await logseq.App.getInfo("version")) as AppInfo | any
+  if (typeof logseqInfo !== "string") {
+    logseqVersion = "0.0.0"
+    logseqVersionMd = false
+    return false
+  }
   //  0.11.0もしくは0.11.0-alpha+nightly.20250427のような形式なので、先頭の3つの数値(1桁、2桁、2桁)を正規表現で取得する
   const version = logseqInfo.match(/(\d+)\.(\d+)\.(\d+)/)
   if (version) {
     logseqVersion = version[0] //バージョンを取得
     // console.log("logseq version: ", logseqVersion)
 
-    // もし バージョンが0.10.*系やそれ以下ならば、logseqVersionMdをtrueにする
-    if (logseqVersion.match(/0\.([0-9]|10)\.\d+/)) {
+    const major = Number(version[1])
+    const minor = Number(version[2])
+    // バージョンが0.10.*系やそれ以下、または Logseq OG(1.*系・旧UI)ならば、logseqVersionMdをtrueにする
+    if ((major === 0 && minor <= 10) || major === 1) {
       logseqVersionMd = true
-      // console.log("logseq version is 0.10.* or lower")
       return true
     } else logseqVersionMd = false
   } else logseqVersion = "0.0.0"
@@ -380,14 +386,14 @@ const checkLogseqVersion = async (): Promise<boolean> => {
 
 // DBグラフかどうかのチェック DBグラフだけtrue
 const checkDbGraph = async (): Promise<boolean> => {
-  const element = parent.document.querySelector(
-    "div.block-tags",
-  ) as HTMLDivElement | null // ページ内にClassタグが存在する  WARN:: ※DOM変更の可能性に注意
-  if (element) {
-    logseqDbGraph = true
-    return true
-  } else logseqDbGraph = false
-  return false
+  try {
+    // 0.10.*系などの旧ホストには checkCurrentIsDbGraph が存在しないため、失敗時は false
+    const value = await (logseq.App as any).checkCurrentIsDbGraph()
+    logseqDbGraph = typeof value === "boolean" ? value : false
+  } catch {
+    logseqDbGraph = false
+  }
+  return logseqDbGraph
 }
 
 // bootstrap
